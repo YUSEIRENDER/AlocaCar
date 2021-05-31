@@ -5,17 +5,24 @@
  */
 package view;
 
+import controller.FormCadastroclienteController;
+import java.awt.event.KeyEvent;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author marco
  */
 public class Cadastrocliente extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Cadastrocliente
-     */
+    private final FormCadastroclienteController controller; //criar campo controller em view
+    
     public Cadastrocliente() {
         initComponents();
+        //adicionar controlador a view
+        controller = FormCadastroclienteController(this);
     }
 
     /**
@@ -27,26 +34,305 @@ public class Cadastrocliente extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jlblCpf = new javax.swing.JLabel();
+        jTxtUF = new javax.swing.JTextField();
+        jTextNome = new javax.swing.JTextField();
+        jTxtCpf = new javax.swing.JTextField();
+        jTxtEndereco = new javax.swing.JTextField();
+        btnCadastrar = new javax.swing.JButton();
+        jTxtTelefone = new javax.swing.JTextField();
+        jLblTelefone = new javax.swing.JLabel();
+        jLblUF1 = new javax.swing.JLabel();
+        jLblendereco1 = new javax.swing.JLabel();
+        jLblNome = new javax.swing.JLabel();
+        jlblCpf1 = new javax.swing.JLabel();
+        jTxtEmail = new javax.swing.JTextField();
+        jLblfundo = new javax.swing.JLabel();
+        jLblTelefone1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 591, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 64, Short.MAX_VALUE))
-        );
+        setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        setClosable(true);
+        setTitle("Cadastro cliente");
+        getContentPane().setLayout(null);
+
+        jlblCpf.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jlblCpf.setForeground(new java.awt.Color(255, 255, 255));
+        jlblCpf.setText("CPF:");
+        getContentPane().add(jlblCpf);
+        jlblCpf.setBounds(330, 360, 50, 17);
+
+        jTxtUF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTxtUFKeyPressed(evt);
+            }
+        });
+        getContentPane().add(jTxtUF);
+        jTxtUF.setBounds(330, 300, 50, 22);
+
+        jTextNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextNomeKeyPressed(evt);
+            }
+        });
+        getContentPane().add(jTextNome);
+        jTextNome.setBounds(330, 220, 160, 22);
+
+        jTxtCpf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTxtCpfKeyPressed(evt);
+            }
+        });
+        getContentPane().add(jTxtCpf);
+        jTxtCpf.setBounds(330, 380, 160, 22);
+
+        jTxtEndereco.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTxtEnderecoKeyPressed(evt);
+            }
+        });
+        getContentPane().add(jTxtEndereco);
+        jTxtEndereco.setBounds(330, 260, 160, 22);
+
+        btnCadastrar.setBackground(new java.awt.Color(0, 102, 102));
+        btnCadastrar.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        btnCadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCadastrar.setText("CADASTRAR");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
+        btnCadastrar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnCadastrarKeyPressed(evt);
+            }
+        });
+        getContentPane().add(btnCadastrar);
+        btnCadastrar.setBounds(360, 460, 100, 20);
+
+        jTxtTelefone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTxtTelefoneKeyPressed(evt);
+            }
+        });
+        getContentPane().add(jTxtTelefone);
+        jTxtTelefone.setBounds(330, 340, 160, 22);
+
+        jLblTelefone.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLblTelefone.setForeground(new java.awt.Color(255, 255, 255));
+        jLblTelefone.setText("Telefone:");
+        getContentPane().add(jLblTelefone);
+        jLblTelefone.setBounds(330, 320, 70, 17);
+
+        jLblUF1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLblUF1.setForeground(new java.awt.Color(255, 255, 255));
+        jLblUF1.setText("UF:");
+        getContentPane().add(jLblUF1);
+        jLblUF1.setBounds(330, 280, 30, 17);
+
+        jLblendereco1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLblendereco1.setForeground(new java.awt.Color(255, 255, 255));
+        jLblendereco1.setText("Endereço:");
+        getContentPane().add(jLblendereco1);
+        jLblendereco1.setBounds(330, 240, 70, 17);
+
+        jLblNome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLblNome.setForeground(new java.awt.Color(255, 255, 255));
+        jLblNome.setText("Nome:");
+        getContentPane().add(jLblNome);
+        jLblNome.setBounds(330, 200, 50, 17);
+
+        jlblCpf1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jlblCpf1.setForeground(new java.awt.Color(255, 255, 255));
+        jlblCpf1.setText("Email:");
+        getContentPane().add(jlblCpf1);
+        jlblCpf1.setBounds(330, 410, 50, 17);
+
+        jTxtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTxtEmailKeyPressed(evt);
+            }
+        });
+        getContentPane().add(jTxtEmail);
+        jTxtEmail.setBounds(330, 430, 160, 22);
+
+        jLblfundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/loginn2.png"))); // NOI18N
+        getContentPane().add(jLblfundo);
+        jLblfundo.setBounds(0, 0, 607, 546);
+
+        jLblTelefone1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLblTelefone1.setForeground(new java.awt.Color(255, 255, 255));
+        jLblTelefone1.setText("Telefone:");
+        getContentPane().add(jLblTelefone1);
+        jLblTelefone1.setBounds(330, 350, 70, 17);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //metodos getters e setters da view
+    
+    public JTextField getjTextNome() {
+        return jTextNome;
+    }
+
+    public void setjTextNome(JTextField jTextNome) {
+        this.jTextNome = jTextNome;
+    }
+
+    public JTextField getjTxtCpf() {
+        return jTxtCpf;
+    }
+
+    public void setjTxtCpf(JTextField jTxtCpf) {
+        this.jTxtCpf = jTxtCpf;
+    }
+
+    public JTextField getjTxtEmail() {
+        return jTxtEmail;
+    }
+
+    public void setjTxtEmail(JTextField jTxtEmail) {
+        this.jTxtEmail = jTxtEmail;
+    }
+
+    public JTextField getjTxtEndereco() {
+        return jTxtEndereco;
+    }
+
+    public void setjTxtEndereco(JTextField jTxtEndereco) {
+        this.jTxtEndereco = jTxtEndereco;
+    }
+
+    public JTextField getjTxtTelefone() {
+        return jTxtTelefone;
+    }
+
+    public void setjTxtTelefone(JTextField jTxtTelefone) {
+        this.jTxtTelefone = jTxtTelefone;
+    }
+
+    public JTextField getjTxtUF() {
+        return jTxtUF;
+    }
+
+    public void setjTxtUF(JTextField jTxtUF) {
+        this.jTxtUF = jTxtUF;
+    }
+
+    public JLabel getJlblCpf() {
+        return jlblCpf;
+    }
+
+    public void setJlblCpf(JLabel jlblCpf) {
+        this.jlblCpf = jlblCpf;
+    }
+
+    public JLabel getJlblCpf1() {
+        return jlblCpf1;
+    }
+
+    public void setJlblCpf1(JLabel jlblCpf1) {
+        this.jlblCpf1 = jlblCpf1;
+    }
+    
+    private void jTextNomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextNomeKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)//ao pressionar botao enter peça o foco
+        {
+
+            jTxtEndereco.requestFocus();
+
+        }
+    }//GEN-LAST:event_jTextNomeKeyPressed
+
+    private void jTxtUFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtUFKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)//ao pressionar botao enter peça o foco
+        {
+
+            jTxtTelefone.requestFocus();
+
+        }
+    }//GEN-LAST:event_jTxtUFKeyPressed
+
+    private void jTxtCpfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtCpfKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)//ao pressionar botao enter peça o foco
+        {
+
+            jTxtEmail.requestFocus();
+
+        }
+    }//GEN-LAST:event_jTxtCpfKeyPressed
+
+    private void jTxtEnderecoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtEnderecoKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)//ao pressionar botao enter peça o foco
+        {
+
+            jTxtUF.requestFocus();
+
+        }
+    }//GEN-LAST:event_jTxtEnderecoKeyPressed
+
+    private void jTxtTelefoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtTelefoneKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)//ao pressionar botao enter peça o foco
+        {
+
+            jTxtCpf.requestFocus();
+
+        }
+    }//GEN-LAST:event_jTxtTelefoneKeyPressed
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+
+        //quando clicar no botao chamar o controlador para salvar um usuario
+        controller.inserir();
+
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void btnCadastrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCadastrarKeyPressed
+        //entrar apertando enter
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+        {
+
+            //quando clicar no botao chamar o controlador para salvar um usuario
+            controller.inserir();
+
+        }
+        else
+        {
+
+            JOptionPane.showMessageDialog(this, "Usuario e/ou senha invalidos!");
+
+        }
+    }//GEN-LAST:event_btnCadastrarKeyPressed
+
+    private void jTxtEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtEmailKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)//ao pressionar botao enter peça o foco
+        {
+
+            jTxtEmail.requestFocus();
+
+        }
+    }//GEN-LAST:event_jTxtEmailKeyPressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnCadastrar;
+    private javax.swing.JLabel jLblNome;
+    private javax.swing.JLabel jLblTelefone;
+    private javax.swing.JLabel jLblTelefone1;
+    private javax.swing.JLabel jLblUF1;
+    private javax.swing.JLabel jLblendereco1;
+    private javax.swing.JLabel jLblfundo;
+    private javax.swing.JTextField jTextNome;
+    private javax.swing.JTextField jTxtCpf;
+    private javax.swing.JTextField jTxtEmail;
+    private javax.swing.JTextField jTxtEndereco;
+    private javax.swing.JTextField jTxtTelefone;
+    private javax.swing.JTextField jTxtUF;
+    private javax.swing.JLabel jlblCpf;
+    private javax.swing.JLabel jlblCpf1;
     // End of variables declaration//GEN-END:variables
+
+    private FormCadastroclienteController FormCadastroclienteController(Cadastrocliente aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

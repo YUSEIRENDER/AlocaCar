@@ -1,0 +1,56 @@
+package controller;
+
+import dao.Conexao;
+import dao.ClienteDAO;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import model.Cliente;
+import view.Cadastrocliente;
+
+public class FormCadastroclienteController {
+    
+    //view a ser gerenciada pelo controller
+    private Cadastrocliente view;
+    
+    public FormCadastroclienteController(Cadastrocliente view)
+    {
+        
+       this.view = view;
+        
+    }
+    
+    public void inserir()
+    {
+        
+       String nomecliente = view.getjTextNome().getText();//nome recebe view como parametro e busca o campo jTextNome e pega o texto dele
+       String endereco = view.getjTxtEndereco().getText();//endereco recebe view como parametro e busca o campo JTextEndereco e pega o texto dele
+       String uf = view.getjTxtUF().getText();//uf recebe view como parameto e busca o campo JTxtUf e pega o texto dele
+       String telefone = view.getjTxtTelefone().getText();//telefone recebe view como parametro e busca o campo JtxtTelefone e pega o texto dele
+       int cpf = Integer.parseInt(view.getjTxtCpf().getText());//cpf recebe view como parametro e busca o campo jTextCpf e pega o texto dele
+       String email = view.getjTxtEmail().getText();//email recebe view como parameto e busca o campo jTxtEmail e pega o texto dele
+       
+       Cliente cliente = new Cliente(nomecliente, endereco, uf, telefone, cpf, email);
+       
+       try
+       {
+           
+           Connection conexao = new Conexao().getConnection();
+           ClienteDAO clienteDao = new ClienteDAO(conexao);
+           clienteDao.inserir(cliente);
+           
+           JOptionPane.showMessageDialog(null, "Cliente inserido com sucesso!");
+           
+       }
+       catch(SQLException ex)
+       {
+           
+           Logger.getLogger(Cadastrocliente.class.getName()).log(Level.SEVERE, null, ex);
+           
+       }    
+        
+    }       
+    
+}

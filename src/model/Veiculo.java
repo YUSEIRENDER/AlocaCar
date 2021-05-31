@@ -2,7 +2,7 @@ package model;
 
 import java.util.Date;
 
-public class Veiculo extends Aluguel
+public class Veiculo
 {
     //definição de variaveis
     private int numero;
@@ -14,8 +14,8 @@ public class Veiculo extends Aluguel
     private String acessorios;       
 
     //metodo contrutor
-    public Veiculo(int numero, String placa, String fabricante, String modelo, int anomodelo, int qtdportas, String acessorios, int idaluguel, String veiculo, Date dataaluguel, Date dataentrega, String cliente, String entregue, String observacao, Double valorpago) {
-        super(idaluguel, veiculo, dataaluguel, dataentrega, cliente, entregue, observacao, valorpago);
+
+    public Veiculo(int numero, String placa, String fabricante, String modelo, int anomodelo, int qtdportas, String acessorios) {
         this.numero = numero;
         this.placa = placa;
         this.fabricante = fabricante;
@@ -23,8 +23,9 @@ public class Veiculo extends Aluguel
         this.anomodelo = anomodelo;
         this.qtdportas = qtdportas;
         this.acessorios = acessorios;
-        this.veiculo = modelo;
     }
+    
+    
     
     //metodos getters e setters
 
@@ -82,14 +83,6 @@ public class Veiculo extends Aluguel
 
     public void setAcessorios(String acessorios) {
         this.acessorios = acessorios;
-    }
-
-    public String getVeiculo() {
-        return veiculo;
-    }
-
-    public void setVeiculo(String veiculo) {
-        this.veiculo = veiculo;
     }
 
     

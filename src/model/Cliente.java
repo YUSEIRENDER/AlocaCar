@@ -2,7 +2,7 @@ package model;
 
 import java.util.Date;
 
-public class Cliente extends Aluguel{
+public class Cliente {
     
     //definição de variaveis
     private String nomecliente;
@@ -13,18 +13,14 @@ public class Cliente extends Aluguel{
     private String email;
 
     //metodo construtor
-
-    public Cliente(String nomecliente, String endereco, String uf, String telefone, Integer cpf, String email, int idaluguel, String veiculo, Date dataaluguel, Date dataentrega, String cliente, String entregue, String observacao, Double valorpago) {
-        super(idaluguel, veiculo, dataaluguel, dataentrega, cliente, entregue, observacao, valorpago);
+    public Cliente(String nomecliente, String endereco, String uf, String telefone, Integer cpf, String email) {
         this.nomecliente = nomecliente;
         this.endereco = endereco;
         this.uf = uf;
         this.telefone = telefone;
         this.cpf = cpf;
         this.email = email;
-        this.nomecliente = cliente;
     }
-    
     //metodos getters e setters
 
     public String getNomecliente() {
@@ -73,14 +69,6 @@ public class Cliente extends Aluguel{
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
     }
 
 }

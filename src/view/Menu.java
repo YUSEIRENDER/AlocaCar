@@ -38,8 +38,9 @@ public class Menu extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jCadastroLogin = new javax.swing.JMenuItem();
         testaraporradodao = new javax.swing.JMenuItem();
+        jCadastrocliente = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
@@ -72,13 +73,13 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu2.setText("Cadastros");
 
-        jMenuItem1.setText("Cadastro login");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jCadastroLogin.setText("Cadastro login");
+        jCadastroLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jCadastroLoginActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem1);
+        jMenu2.add(jCadastroLogin);
 
         testaraporradodao.setText("TESTAR A PORRA DO DAO");
         testaraporradodao.addActionListener(new java.awt.event.ActionListener() {
@@ -88,6 +89,9 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu2.add(testaraporradodao);
 
+        jCadastrocliente.setText("Cadastro Cliente");
+        jMenu2.add(jCadastrocliente);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -95,13 +99,13 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jCadastroLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCadastroLoginActionPerformed
         // TODO add your handling code here:
         //entrar na tela cadastro login
         Cadastrologin cadLogin = new Cadastrologin();
         cadLogin.setVisible(true);
         jTelaTrabalho.add(cadLogin);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_jCadastroLoginActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
@@ -177,12 +181,13 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem jCadastroLogin;
+    private javax.swing.JMenuItem jCadastrocliente;
     private javax.swing.JLabel jLabelusuario;
     private javax.swing.JLabel jLblusuario;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     public static javax.swing.JDesktopPane jTelaTrabalho;
     private javax.swing.JMenuItem testaraporradodao;

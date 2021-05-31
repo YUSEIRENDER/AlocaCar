@@ -7,16 +7,17 @@ public class Aluguel
 {
     //definição de variaveis
     protected int idaluguel;
-    protected String veiculo;
+    protected Veiculo veiculo;
     protected Date dataaluguel;
     protected Date dataentrega;
-    protected String cliente;
+    protected Cliente cliente;
     protected String entregue;
     protected String observacao;
     protected Double valorpago;
     
     //metodo construtor
-    public Aluguel(int idaluguel, String veiculo, Date dataaluguel, Date dataentrega, String cliente, String entregue, String observacao, Double valorpago) {
+
+    public Aluguel(int idaluguel, Veiculo veiculo, Date dataaluguel, Date dataentrega, Cliente cliente, String entregue, String observacao, Double valorpago) {
         this.idaluguel = idaluguel;
         this.veiculo = veiculo;
         this.dataaluguel = dataaluguel;
@@ -26,7 +27,7 @@ public class Aluguel
         this.observacao = observacao;
         this.valorpago = valorpago;
     }
-
+    
     
     //metodos gettes e setters
     public int getIdaluguel() {
@@ -37,11 +38,11 @@ public class Aluguel
         this.idaluguel = idaluguel;
     }
 
-    public String getVeiculo() {
+    public Veiculo getVeiculo() {
         return veiculo;
     }
 
-    public void setVeiculo(String veiculo) {
+    public void setVeiculo(Veiculo veiculo) {
         this.veiculo = veiculo;
     }
 
@@ -61,11 +62,11 @@ public class Aluguel
         this.dataentrega = dataentrega;
     }
 
-    public String getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 
-    public void setCliente(String cliente) {
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
@@ -92,5 +93,5 @@ public class Aluguel
     public void setValorpago(Double valorpago) {
         this.valorpago = valorpago;
     }
-
+    
 }
