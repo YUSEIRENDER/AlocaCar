@@ -20,11 +20,11 @@ public class UsuarioDAO
     }
     
     //função inserir
-    public void inserir(Usuario usuario) throws SQLException//passar para a função um usuario do tipo usuario dentro de entidade, caso nao consiga joga uma sqlexception
+    public Usuario inserir(Usuario usuario) throws SQLException//passar para a função um usuario do tipo usuario dentro de entidade, caso nao consiga joga uma sqlexception
     {
             //jogue na string sql o comando sql os valores respectivos no banco de dados
             String sql = "INSERT INTO usuario(nome,cargo,login,senha,email) values (?,?,?,?,?); ";//cria string sql
-            PreparedStatement stmt = conexao.prepareStatement(sql);
+            PreparedStatement stmt = conexao.prepareStatement(sql,PreparedStatement.RETURN_GENERATED_KEYS);
             
             stmt.setString(1,usuario.getNome());//statement seta string 1=? o que vir de usuario.getNome()
             stmt.setString(2,usuario.getCargo());//statement seta string 2=? o que vir de usuario.getCargo()
@@ -33,8 +33,18 @@ public class UsuarioDAO
             stmt.setString(5, usuario.getEmail());//statement seta string 5=? o que vir de usuario.getEmail()
             
             //efetua a execução no banco de dados
-            stmt.execute();
+            stmt.executeUpdate();
+            
+                    ResultSet resultSet = stmt.getGeneratedKeys();
+                          
+             if (resultSet.next()) 
+             {
+                    String nome = resultSet.getString("nome");
+                    usuario.setNome(nome);
+             }
 
+             return usuario;
+             
     }               
     
     //função atualizar
@@ -88,11 +98,11 @@ public class UsuarioDAO
         while(resultSet.next())//enquanto estiver lendo linhas
         {
             
-            String nome = resultSet.getString("nome");
-            String cargo = resultSet.getString("cargo");
-            String login = resultSet.getString("login");
-            String senha = resultSet.getString("senha");
-            String email = resultSet.getString("email");         
+            String nome = resultSet.getString("nome");//o que vir de resultset.getString("nome");
+            String cargo = resultSet.getString("cargo");//o que vir de resultset.getString("cargo");
+            String login = resultSet.getString("login");//o que vir de resultset.getString("login");
+            String senha = resultSet.getString("senha");//o que vir de resultset.getString("senha");
+            String email = resultSet.getString("email");//o que vir de resultset.getString("email");         
             
             Usuario usuariocomBancoDados = new Usuario(nome, cargo, login, senha, email);
             usuarios.add(usuariocomBancoDados);

@@ -1,5 +1,14 @@
 package view;
 
+import dao.Conexao;
+import dao.UsuarioDAO;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.Usuario;
+
 public class Menu extends javax.swing.JFrame {
 
     /**
@@ -30,20 +39,22 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        testaraporradodao = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
         setPreferredSize(new java.awt.Dimension(940, 560));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         jLabelusuario.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelusuario.setForeground(new java.awt.Color(255, 255, 255));
         jLabelusuario.setText("Usuario:");
-        getContentPane().add(jLabelusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 50, 22));
-        getContentPane().add(jLblusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 34, 22));
-
-        jTelaTrabalho.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jTelaTrabalho, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 640));
+        getContentPane().add(jLabelusuario);
+        jLabelusuario.setBounds(10, 10, 50, 22);
+        getContentPane().add(jLblusuario);
+        jLblusuario.setBounds(60, 10, 34, 22);
+        getContentPane().add(jTelaTrabalho);
+        jTelaTrabalho.setBounds(0, 0, 980, 680);
 
         jMenuBar1.setPreferredSize(new java.awt.Dimension(39, 30));
 
@@ -69,6 +80,14 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem1);
 
+        testaraporradodao.setText("TESTAR A PORRA DO DAO");
+        testaraporradodao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                testaraporradodaoActionPerformed(evt);
+            }
+        });
+        jMenu2.add(testaraporradodao);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -89,6 +108,38 @@ public class Menu extends javax.swing.JFrame {
         Login login = new Login();
         login.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void testaraporradodaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testaraporradodaoActionPerformed
+        try {
+            // TODO add your handling code here:
+            Connection conexao = new Conexao().getConnection();
+            UsuarioDAO usuarioDAO = new UsuarioDAO(conexao);//passa a conexão para um objeto do tipo usuario dao
+            
+            //teste inserir
+            Usuario usuarioInserir = new Usuario("adalberto", "cliente", "betow", "betovagabundo", "betowsampa@gmail.com");
+            Usuario usuarioInserido = usuarioDAO.inserir(usuarioInserir);
+            
+            //teste selectpornome
+            Usuario usuarioSelecionado = usuarioDAO.selectporNome(usuarioInserido);
+            
+            //teste delete
+            usuarioDAO.deletar(usuarioSelecionado);
+            
+            //teste de select todos
+            ArrayList<Usuario> usuarios = usuarioDAO.selecioneTudo();//todos usuarios do banco de dados na variavel
+            
+            for(Usuario usuario: usuarios)
+            {
+                
+                System.out.println(usuario.getNome());
+                
+            }    
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_testaraporradodaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,5 +185,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     public static javax.swing.JDesktopPane jTelaTrabalho;
+    private javax.swing.JMenuItem testaraporradodao;
     // End of variables declaration//GEN-END:variables
 }
