@@ -14,7 +14,7 @@ public class LoginController
 {
     
     private Login view;//view login do controller
-     private LoginHelper helper;
+    private LoginHelper helper;
 
     //passando a view do logincontroller
     public LoginController(Login view) 

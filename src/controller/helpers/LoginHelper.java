@@ -11,7 +11,7 @@ import view.Login;
 
 public class LoginHelper {
     
-    private final Login view;///buscar proriedade do tipo view
+    private final Login view;///buscar propriedade do tipo view
     
     //contrutor para a view
 
