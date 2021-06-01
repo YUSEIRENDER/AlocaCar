@@ -42,9 +42,9 @@ public class Cadastrocliente extends javax.swing.JInternalFrame {
         jLblNome = new javax.swing.JLabel();
         jLblEndereco = new javax.swing.JLabel();
         jLbUF = new javax.swing.JLabel();
-        jTextUF = new javax.swing.JTextField();
+        jTextTelefone = new javax.swing.JTextField();
+        jTextUF1 = new javax.swing.JTextField();
         jLblTelefone = new javax.swing.JLabel();
-        jTextTelefone = new javax.swing.JPasswordField();
         jLblCPF = new javax.swing.JLabel();
         jTextCPF = new javax.swing.JTextField();
         jLblEmail = new javax.swing.JLabel();
@@ -107,21 +107,6 @@ public class Cadastrocliente extends javax.swing.JInternalFrame {
         getContentPane().add(jLbUF);
         jLbUF.setBounds(250, 240, 60, 17);
 
-        jTextUF.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextUFKeyPressed(evt);
-            }
-        });
-        getContentPane().add(jTextUF);
-        jTextUF.setBounds(250, 260, 160, 22);
-
-        jLblTelefone.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLblTelefone.setForeground(new java.awt.Color(255, 255, 255));
-        jLblTelefone.setText("Telefone:");
-        getContentPane().add(jLblTelefone);
-        jLblTelefone.setBounds(250, 280, 70, 17);
-
-        jTextTelefone.setText("jPasswordField1");
         jTextTelefone.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextTelefoneKeyPressed(evt);
@@ -129,6 +114,20 @@ public class Cadastrocliente extends javax.swing.JInternalFrame {
         });
         getContentPane().add(jTextTelefone);
         jTextTelefone.setBounds(250, 300, 160, 22);
+
+        jTextUF1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextUF1KeyPressed(evt);
+            }
+        });
+        getContentPane().add(jTextUF1);
+        jTextUF1.setBounds(250, 260, 160, 22);
+
+        jLblTelefone.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLblTelefone.setForeground(new java.awt.Color(255, 255, 255));
+        jLblTelefone.setText("Telefone:");
+        getContentPane().add(jLblTelefone);
+        jLblTelefone.setBounds(250, 280, 70, 17);
 
         jLblCPF.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLblCPF.setForeground(new java.awt.Color(255, 255, 255));
@@ -220,25 +219,16 @@ public class Cadastrocliente extends javax.swing.JInternalFrame {
         if(evt.getKeyCode()==KeyEvent.VK_ENTER)//ao pressionar botao enter peça o foco
         {
 
-            jTextUF.requestFocus();
-
-        }
-    }//GEN-LAST:event_jTextEnderecoKeyPressed
-
-    private void jTextUFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextUFKeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER)//ao pressionar botao enter peça o foco
-        {
-
             jTextTelefone.requestFocus();
 
         }
-    }//GEN-LAST:event_jTextUFKeyPressed
+    }//GEN-LAST:event_jTextEnderecoKeyPressed
 
     private void jTextTelefoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextTelefoneKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER)//ao pressionar botao enter peça o foco
         {
 
-            jTextCPF.requestFocus();
+            jTextTelefone.requestFocus();
 
         }
     }//GEN-LAST:event_jTextTelefoneKeyPressed
@@ -310,8 +300,11 @@ public class Cadastrocliente extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jTextEmailKeyPressed
 
+    private void jTextUF1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextUF1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextUF1KeyPressed
+
     //metodos getters e setter
-    
     public JTable getjTable1() {
         return jTable1;
     }
@@ -352,22 +345,22 @@ public class Cadastrocliente extends javax.swing.JInternalFrame {
         this.jTextNome1 = jTextNome1;
     }
 
-    public JPasswordField getjTextTelefone() {
+    public JTextField getjTextTelefone() {
         return jTextTelefone;
     }
 
-    public void setjTextTelefone(JPasswordField jTextTelefone) {
+    public void setjTextTelefone(JTextField jTextTelefone) {
         this.jTextTelefone = jTextTelefone;
     }
 
-    public JTextField getjTextUF() {
-        return jTextUF;
+    public JTextField getjTextUF1() {
+        return jTextUF1;
     }
 
-    public void setjTextUF(JTextField jTextUF) {
-        this.jTextUF = jTextUF;
+    //metodos getters e setter
+    public void setjTextUF1(JTextField jTextUF1) {
+        this.jTextUF1 = jTextUF1;
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar1;
     private javax.swing.JButton btnConsultar1;
@@ -385,7 +378,7 @@ public class Cadastrocliente extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextEmail;
     private javax.swing.JTextField jTextEndereco;
     private javax.swing.JTextField jTextNome1;
-    private javax.swing.JPasswordField jTextTelefone;
-    private javax.swing.JTextField jTextUF;
+    private javax.swing.JTextField jTextTelefone;
+    private javax.swing.JTextField jTextUF1;
     // End of variables declaration//GEN-END:variables
 }
