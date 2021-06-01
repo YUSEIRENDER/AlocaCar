@@ -288,7 +288,7 @@ public class Cadastrologin extends javax.swing.JInternalFrame {
         else
         {
             
-            JOptionPane.showMessageDialog(this, "Usuario e/ou senha invalidos!");
+            JOptionPane.showMessageDialog(this, "Erro ao inserir um usuario!");
             
         }
     }//GEN-LAST:event_btnCadastrar1KeyPressed

@@ -258,10 +258,25 @@ public class Cadastrocliente extends javax.swing.JInternalFrame {
 
     private void btnCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrar1ActionPerformed
         // TODO add your handling code here:
+        //quando clicar no botao chamar o controlador para salvar um cliente
+        controller.inserir();
     }//GEN-LAST:event_btnCadastrar1ActionPerformed
 
     private void btnCadastrar1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCadastrar1KeyPressed
-        // TODO add your handling code here:
+        //entrar apertando enter
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+        {
+            
+	//quando clicar no botao chamar o controlador para salvar um cliente
+        controller.inserir();            
+            
+        }
+        else
+        {
+            
+            JOptionPane.showMessageDialog(this, "Erro ao inserir cliente!");
+            
+        }
     }//GEN-LAST:event_btnCadastrar1KeyPressed
 
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed

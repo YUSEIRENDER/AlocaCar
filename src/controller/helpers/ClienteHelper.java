@@ -49,9 +49,6 @@ public class ClienteHelper {
         view.getjTextCPF().setText(String.valueOf(cpf));
         view.getjTextEmail().setText(email);
         
-        
-
-        
     }        
     
 }
