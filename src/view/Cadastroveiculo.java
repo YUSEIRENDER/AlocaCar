@@ -1,9 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
+
+import controller.FormCadastroveiculoController;
+import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
@@ -11,11 +12,12 @@ package view;
  */
 public class Cadastroveiculo extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Cadastroveiculo
-     */
+    private final FormCadastroveiculoController controller;//criar campo controller em view
+    
     public Cadastroveiculo() {
         initComponents();
+        //adicionar controlador a view
+        controller = new FormCadastroveiculoController(this);//criar campo controller em view
     }
 
     /**
@@ -27,28 +29,369 @@ public class Cadastroveiculo extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        btnConsultar1 = new javax.swing.JButton();
+        btnCadastrar1 = new javax.swing.JButton();
+        btnDeletar = new javax.swing.JButton();
+        jTextNome1 = new javax.swing.JTextField();
+        jTextPlaca = new javax.swing.JTextField();
+        jLblPlaca = new javax.swing.JLabel();
+        jLblNome = new javax.swing.JLabel();
+        jLblQtdportas = new javax.swing.JLabel();
+        jTextQtdportas = new javax.swing.JTextField();
+        jLblAcessorios = new javax.swing.JLabel();
+        jTextAcessorios = new javax.swing.JTextField();
+        jLblAnomodelo = new javax.swing.JLabel();
+        jTextAnomodelo = new javax.swing.JTextField();
+        jTextModelo = new javax.swing.JTextField();
+        jLblModelo = new javax.swing.JLabel();
+        jLblFabricante = new javax.swing.JLabel();
+        jTextFabricante = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setTitle("Cadastro veiculo");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/loginn2.png"))); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Nome", "Placa", "Fabricante", "Modelo", "Ano Modelo", "Qtd Portas", "Acessorios"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, 560, -1));
+
+        btnConsultar1.setBackground(new java.awt.Color(0, 102, 102));
+        btnConsultar1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        btnConsultar1.setForeground(new java.awt.Color(255, 255, 255));
+        btnConsultar1.setText("CONSULTAR");
+        btnConsultar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultar1ActionPerformed(evt);
+            }
+        });
+        btnConsultar1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnConsultar1KeyPressed(evt);
+            }
+        });
+        getContentPane().add(btnConsultar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, -1, -1));
+
+        btnCadastrar1.setBackground(new java.awt.Color(0, 102, 102));
+        btnCadastrar1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        btnCadastrar1.setForeground(new java.awt.Color(255, 255, 255));
+        btnCadastrar1.setText("CADASTRAR");
+        btnCadastrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrar1ActionPerformed(evt);
+            }
+        });
+        btnCadastrar1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnCadastrar1KeyPressed(evt);
+            }
+        });
+        getContentPane().add(btnCadastrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 450, -1, -1));
+
+        btnDeletar.setBackground(new java.awt.Color(0, 102, 102));
+        btnDeletar.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        btnDeletar.setForeground(new java.awt.Color(255, 255, 255));
+        btnDeletar.setText("DELETAR");
+        btnDeletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeletarActionPerformed(evt);
+            }
+        });
+        btnDeletar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnDeletarKeyPressed(evt);
+            }
+        });
+        getContentPane().add(btnDeletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 470, -1, -1));
+
+        jTextNome1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextNome1KeyPressed(evt);
+            }
+        });
+        getContentPane().add(jTextNome1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 170, 22));
+
+        jTextPlaca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextPlacaKeyPressed(evt);
+            }
+        });
+        getContentPane().add(jTextPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 170, 22));
+
+        jLblPlaca.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLblPlaca.setForeground(new java.awt.Color(255, 255, 255));
+        jLblPlaca.setText("Placa:");
+        getContentPane().add(jLblPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, -1, -1));
+
+        jLblNome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLblNome.setForeground(new java.awt.Color(255, 255, 255));
+        jLblNome.setText("Nome:");
+        getContentPane().add(jLblNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, -1, -1));
+
+        jLblQtdportas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLblQtdportas.setForeground(new java.awt.Color(255, 255, 255));
+        jLblQtdportas.setText("Quantidade portas:");
+        getContentPane().add(jLblQtdportas, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, -1, -1));
+
+        jTextQtdportas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextQtdportasKeyPressed(evt);
+            }
+        });
+        getContentPane().add(jTextQtdportas, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 170, 22));
+
+        jLblAcessorios.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLblAcessorios.setForeground(new java.awt.Color(255, 255, 255));
+        jLblAcessorios.setText("Acessorios:");
+        getContentPane().add(jLblAcessorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, -1, -1));
+
+        jTextAcessorios.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextAcessoriosKeyPressed(evt);
+            }
+        });
+        getContentPane().add(jTextAcessorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 420, 170, 22));
+
+        jLblAnomodelo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLblAnomodelo.setForeground(new java.awt.Color(255, 255, 255));
+        jLblAnomodelo.setText("Ano Modelo:");
+        getContentPane().add(jLblAnomodelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, -1, -1));
+
+        jTextAnomodelo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextAnomodeloKeyPressed(evt);
+            }
+        });
+        getContentPane().add(jTextAnomodelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, 170, 22));
+
+        jTextModelo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextModeloKeyPressed(evt);
+            }
+        });
+        getContentPane().add(jTextModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, 170, 22));
+
+        jLblModelo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLblModelo.setForeground(new java.awt.Color(255, 255, 255));
+        jLblModelo.setText("Modelo:");
+        getContentPane().add(jLblModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, -1, -1));
+
+        jLblFabricante.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLblFabricante.setForeground(new java.awt.Color(255, 255, 255));
+        jLblFabricante.setText("Fabricante:");
+        getContentPane().add(jLblFabricante, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, -1, -1));
+
+        jTextFabricante.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFabricanteKeyPressed(evt);
+            }
+        });
+        getContentPane().add(jTextFabricante, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, 170, 22));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/loginn3.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTextNome1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextNome1KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)//ao pressionar botao enter peça o foco
+        {
+
+            jTextPlaca.requestFocus();
+
+        }
+    }//GEN-LAST:event_jTextNome1KeyPressed
+
+    private void jTextPlacaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextPlacaKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)//ao pressionar botao enter peça o foco
+        {
+
+            jTextFabricante.requestFocus();
+
+        }
+    }//GEN-LAST:event_jTextPlacaKeyPressed
+
+    private void jTextFabricanteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFabricanteKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)//ao pressionar botao enter peça o foco
+        {
+
+            jTextModelo.requestFocus();
+
+        }
+    }//GEN-LAST:event_jTextFabricanteKeyPressed
+
+    private void jTextModeloKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextModeloKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)//ao pressionar botao enter peça o foco
+        {
+
+            jTextAnomodelo.requestFocus();
+
+        }
+    }//GEN-LAST:event_jTextModeloKeyPressed
+
+    private void jTextAnomodeloKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextAnomodeloKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)//ao pressionar botao enter peça o foco
+        {
+
+            jTextQtdportas.requestFocus();
+
+        }
+    }//GEN-LAST:event_jTextAnomodeloKeyPressed
+
+    private void jTextQtdportasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextQtdportasKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)//ao pressionar botao enter peça o foco
+        {
+
+            jTextAcessorios.requestFocus();
+
+        }
+    }//GEN-LAST:event_jTextQtdportasKeyPressed
+
+    private void jTextAcessoriosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextAcessoriosKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)//ao pressionar botao enter peça o foco
+        {
+
+            btnCadastrar1.requestFocus();
+
+        }
+    }//GEN-LAST:event_jTextAcessoriosKeyPressed
+
+    private void btnConsultar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnConsultar1ActionPerformed
+
+    private void btnConsultar1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnConsultar1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnConsultar1KeyPressed
+
+    private void btnCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadastrar1ActionPerformed
+
+    private void btnCadastrar1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCadastrar1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadastrar1KeyPressed
+
+    private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
+
+        //quando clicar no botao chamar o controlador para salvar um usuario
+        controller.inserir();
+    }//GEN-LAST:event_btnDeletarActionPerformed
+
+    private void btnDeletarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnDeletarKeyPressed
+        //entrar apertando enter
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+        {
+
+            //quando clicar no botao chamar o controlador para salvar um usuario
+            controller.inserir();
+
+        }
+        else
+        {
+
+            JOptionPane.showMessageDialog(this, "Usuario e/ou senha invalidos!");
+
+        }
+    }//GEN-LAST:event_btnDeletarKeyPressed
+    //metodos getters e setters    
+    public JTable getjTable1() {
+        return jTable1;
+    }
+
+    public void setjTable1(JTable jTable1) {
+        this.jTable1 = jTable1;
+    }
+
+    public JTextField getjTextAcessorios() {
+        return jTextAcessorios;
+    }
+
+    public void setjTextAcessorios(JTextField jTextAcessorios) {
+        this.jTextAcessorios = jTextAcessorios;
+    }
+
+    public JTextField getjTextAnomodelo() {
+        return jTextAnomodelo;
+    }
+
+    public void setjTextAnomodelo(JTextField jTextAnomodelo) {
+        this.jTextAnomodelo = jTextAnomodelo;
+    }
+
+    public JTextField getjTextFabricante() {
+        return jTextFabricante;
+    }
+
+    public void setjTextFabricante(JTextField jTextFabricante) {
+        this.jTextFabricante = jTextFabricante;
+    }
+
+    public JTextField getjTextModelo() {
+        return jTextModelo;
+    }
+
+    public void setjTextModelo(JTextField jTextModelo) {
+        this.jTextModelo = jTextModelo;
+    }
+
+    public JTextField getjTextNome1() {
+        return jTextNome1;
+    }
+
+    public void setjTextNome1(JTextField jTextNome1) {
+        this.jTextNome1 = jTextNome1;
+    }
+
+    public JTextField getjTextPlaca() {
+        return jTextPlaca;
+    }
+
+    public void setjTextPlaca(JTextField jTextPlaca) {
+        this.jTextPlaca = jTextPlaca;
+    }
+
+    public JTextField getjTextQtdportas() {
+        return jTextQtdportas;
+    }
+
+    public void setjTextQtdportas(JTextField jTextQtdportas) {
+        this.jTextQtdportas = jTextQtdportas;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCadastrar1;
+    private javax.swing.JButton btnConsultar1;
+    private javax.swing.JButton btnDeletar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLblAcessorios;
+    private javax.swing.JLabel jLblAnomodelo;
+    private javax.swing.JLabel jLblFabricante;
+    private javax.swing.JLabel jLblModelo;
+    private javax.swing.JLabel jLblNome;
+    private javax.swing.JLabel jLblPlaca;
+    private javax.swing.JLabel jLblQtdportas;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextAcessorios;
+    private javax.swing.JTextField jTextAnomodelo;
+    private javax.swing.JTextField jTextFabricante;
+    private javax.swing.JTextField jTextModelo;
+    private javax.swing.JTextField jTextNome1;
+    private javax.swing.JTextField jTextPlaca;
+    private javax.swing.JTextField jTextQtdportas;
     // End of variables declaration//GEN-END:variables
 }
