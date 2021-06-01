@@ -15,7 +15,7 @@ public class ClienteHelper {
     }
     
     //função obter
-    public Cadastrocliente obterCliente()
+    public Cliente obterCliente()
     {
         
         //buscar um usuario da view
@@ -29,6 +29,26 @@ public class ClienteHelper {
         Cliente cliente = new Cliente(nomecliente, endereco, uf, telefone, cpf, email);
         
         return cliente;
+    }
+    
+    //função setar
+    public void Cliente setCliente(Cliente cliente)        
+    {
+        
+        String nomecliente = cliente.getNomecliente();
+        String endereco = cliente.getEndereco();
+        String uf = cliente.getUf();
+        String telefone = cliente.getTelefone();
+        int cpf = cliente.getCpf();
+        String email = cliente.getEmail();
+        
+        view.getjTextNome1().setText(nomecliente);
+        view.getjTextEndereco().setText(endereco);
+        view.getjTextUF1().setText(uf);
+        view.getjTextTelefone().setText(telefone);
+        view.getjTextCPF().setText(cpf);
+
+        
     }        
     
 }
