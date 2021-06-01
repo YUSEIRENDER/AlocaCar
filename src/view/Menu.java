@@ -1,14 +1,5 @@
 package view;
 
-import dao.Conexao;
-import dao.UsuarioDAO;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import model.Usuario;
-
 public class Menu extends javax.swing.JFrame {
 
     /**
@@ -38,24 +29,26 @@ public class Menu extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jCadastroLogin = new javax.swing.JMenuItem();
-        testaraporradodao = new javax.swing.JMenuItem();
-        jCadastrocliente = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
         setPreferredSize(new java.awt.Dimension(940, 560));
-        getContentPane().setLayout(null);
 
         jLabelusuario.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelusuario.setForeground(new java.awt.Color(255, 255, 255));
         jLabelusuario.setText("Usuario:");
-        getContentPane().add(jLabelusuario);
-        jLabelusuario.setBounds(10, 10, 50, 22);
-        getContentPane().add(jLblusuario);
-        jLblusuario.setBounds(60, 10, 34, 22);
-        getContentPane().add(jTelaTrabalho);
-        jTelaTrabalho.setBounds(0, 0, 980, 680);
+
+        javax.swing.GroupLayout jTelaTrabalhoLayout = new javax.swing.GroupLayout(jTelaTrabalho);
+        jTelaTrabalho.setLayout(jTelaTrabalhoLayout);
+        jTelaTrabalhoLayout.setHorizontalGroup(
+            jTelaTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 950, Short.MAX_VALUE)
+        );
+        jTelaTrabalhoLayout.setVerticalGroup(
+            jTelaTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 580, Short.MAX_VALUE)
+        );
 
         jMenuBar1.setPreferredSize(new java.awt.Dimension(39, 30));
 
@@ -73,77 +66,56 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu2.setText("Cadastros");
 
-        jCadastroLogin.setText("Cadastro login");
-        jCadastroLogin.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem1.setText("Cadastro login");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCadastroLoginActionPerformed(evt);
+                jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu2.add(jCadastroLogin);
-
-        testaraporradodao.setText("TESTAR A PORRA DO DAO");
-        testaraporradodao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                testaraporradodaoActionPerformed(evt);
-            }
-        });
-        jMenu2.add(testaraporradodao);
-
-        jCadastrocliente.setText("Cadastro Cliente");
-        jMenu2.add(jCadastrocliente);
+        jMenu2.add(jMenuItem1);
 
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jLblusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jTelaTrabalho)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabelusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTelaTrabalho)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLblusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCadastroLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCadastroLoginActionPerformed
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         //entrar na tela cadastro login
         Cadastrologin cadLogin = new Cadastrologin();
         cadLogin.setVisible(true);
         jTelaTrabalho.add(cadLogin);
-    }//GEN-LAST:event_jCadastroLoginActionPerformed
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         Login login = new Login();
         login.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void testaraporradodaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testaraporradodaoActionPerformed
-        try {
-            // TODO add your handling code here:
-            Connection conexao = new Conexao().getConnection();
-            UsuarioDAO usuarioDAO = new UsuarioDAO(conexao);//passa a conexão para um objeto do tipo usuario dao
-            
-            //teste inserir
-            Usuario usuarioInserir = new Usuario("adalberto", "cliente", "betow", "betovagabundo", "betowsampa@gmail.com");
-            Usuario usuarioInserido = usuarioDAO.inserir(usuarioInserir);
-            
-            //teste selectpornome
-            Usuario usuarioSelecionado = usuarioDAO.selectporNome(usuarioInserido);
-            
-            //teste delete
-            usuarioDAO.deletar(usuarioSelecionado);
-            
-            //teste de select todos
-            ArrayList<Usuario> usuarios = usuarioDAO.selecioneTudo();//todos usuarios do banco de dados na variavel
-            
-            for(Usuario usuario: usuarios)
-            {
-                
-                System.out.println(usuario.getNome());
-                
-            }    
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }//GEN-LAST:event_testaraporradodaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,15 +153,13 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem jCadastroLogin;
-    private javax.swing.JMenuItem jCadastrocliente;
     private javax.swing.JLabel jLabelusuario;
     private javax.swing.JLabel jLblusuario;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     public static javax.swing.JDesktopPane jTelaTrabalho;
-    private javax.swing.JMenuItem testaraporradodao;
     // End of variables declaration//GEN-END:variables
 }

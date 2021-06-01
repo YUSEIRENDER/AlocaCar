@@ -1,7 +1,5 @@
 package model;
 
-import java.util.Date;
-
 public class Cliente {
     
     //definição de variaveis
@@ -21,8 +19,8 @@ public class Cliente {
         this.cpf = cpf;
         this.email = email;
     }
+    
     //metodos getters e setters
-
     public String getNomecliente() {
         return nomecliente;
     }
@@ -70,5 +68,6 @@ public class Cliente {
     public void setEmail(String email) {
         this.email = email;
     }
+
 
 }

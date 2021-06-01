@@ -25,12 +25,12 @@ public class FormCadastroclienteController {
     public void inserir()
     {
         
-       String nomecliente = view.getjTextNome().getText();//nome recebe view como parametro e busca o campo jTextNome e pega o texto dele
-       String endereco = view.getjTxtEndereco().getText();//endereco recebe view como parametro e busca o campo JTextEndereco e pega o texto dele
-       String uf = view.getjTxtUF().getText();//uf recebe view como parameto e busca o campo JTxtUf e pega o texto dele
-       String telefone = view.getjTxtTelefone().getText();//telefone recebe view como parametro e busca o campo JtxtTelefone e pega o texto dele
-       int cpf = Integer.parseInt(view.getjTxtCpf().getText());//cpf recebe view como parametro e busca o campo jTextCpf e pega o texto dele
-       String email = view.getjTxtEmail().getText();//email recebe view como parameto e busca o campo jTxtEmail e pega o texto dele
+       String nomecliente = view.getjTextNome1().getText();//nome recebe view como parametro e busca o campo jTextNome e pega o texto dele
+       String endereco = view.getjTextEndereco().getText();//endereco recebe view como parametro e busca o campo JTextEndereco e pega o texto dele
+       String uf = view.getjTextUF().getText();//uf recebe view como parameto e busca o campo JTxtUf e pega o texto dele
+       String telefone = view.getjTextTelefone().getText();//telefone recebe view como parametro e busca o campo JtxtTelefone e pega o texto dele
+       int cpf = Integer.parseInt(view.getjTextCPF().getText());//cpf recebe view como parametro e busca o campo jTextCpf e pega o texto dele
+       String email = view.getjTextEmail().getText();//email recebe view como parameto e busca o campo jTxtEmail e pega o texto dele
        
        Cliente cliente = new Cliente(nomecliente, endereco, uf, telefone, cpf, email);
        

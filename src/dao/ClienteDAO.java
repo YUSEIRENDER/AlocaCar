@@ -22,12 +22,12 @@ public class ClienteDAO
     }
     
     //função inserir
-    public Cliente inserir(Cliente cliente) throws SQLException//passar para a função um cliente do tipo cliente dentro de entidade, caso nao consiga joga uma sqlexception
+    public void inserir(Cliente cliente) throws SQLException//passar para a função um cliente do tipo cliente dentro de entidade, caso nao consiga joga uma sqlexception
     {
         
             //jogue na string sql o comando sql os valores respectivos no banco de dados
             String sql = "INSERT INTO cliente(nomecliente,endereco,uf,telefone,cpf,email) values (?,?,?,?,?,?); ";//cria string sql
-            PreparedStatement stmt = conexao.prepareStatement(sql,PreparedStatement.RETURN_GENERATED_KEYS);
+            PreparedStatement stmt = conexao.prepareStatement(sql);
             
             stmt.setString(1,cliente.getNomecliente());//statement seta string 1=? o que vir de cliente.getNomecliente()
             stmt.setString(2,cliente.getEndereco());//statement seta string 2=? o que vir de cliente.getEndereco()
@@ -37,40 +37,9 @@ public class ClienteDAO
             stmt.setString(6, cliente.getEmail());//statement seta string 6=? o que vier de cliente.getEmail()
             
             //efetua a execução no banco de dados
-            stmt.executeUpdate();
-            
-                    ResultSet resultSet = stmt.getGeneratedKeys();
-        
-            if (resultSet.next())
-            {
-                
-                int cpf = resultSet.getInt("cpf");
-                cliente.setCpf(cpf);
-                
-            }
-            
-            return cliente;
+            stmt.execute();
     }        
-    
-    
-    //função atualizar
-    public void atualizar(Cliente cliente) throws SQLException //passar para a função um cliente do tipo cliente dentro de entidade, caso nao consiga joga uma sqlexception
-    {
-        
-        String sql = "UPDATE cliente SET nomecliente = ?, endereco = ?, uf = ?, telefone = ?, cpf = ?, email = ? where cpf = ? ";//cria string sql
-        PreparedStatement stmt = conexao.prepareStatement(sql);
-        
-        stmt.setString(1,cliente.getNomecliente());//statement seta string 1=? o que vir de cliente.getNomecliente()
-        stmt.setString(2,cliente.getEndereco());//statement seta string 2=? o que vir de cliente.getEndereco()
-        stmt.setString(3,cliente.getUf());//statement seta string 3=? o que vir de cliente.getUf().
-        stmt.setString(4,cliente.getTelefone());//statement seta string 4=? o que vir de cliente.getTelefone()
-        stmt.setInt(5, cliente.getCpf());//statement seta string 5=? o que vir de cliente.getCpf()
-        stmt.setString(6, cliente.getEmail());//statement seta string 6=? o que vier de cliente.getEmail()      
-        
-        stmt.execute();//efetua a execução no banco de dados
-        
-    }
-    
+
     //função excluir
     public void deletar(Cliente cliente) throws SQLException
     {
@@ -132,23 +101,5 @@ public class ClienteDAO
         return pesquisa(stmt).get(0);//chama metodo pesquisa que retorna lista de clientes e pegue o primeiro na lista de clientes
         
     }
-    
-    //função inserirouatualizar
-    public void inserirOuAtualizar(Cliente cliente) throws SQLException//passar para a função um cliente do tipo cliente dentro de entidade, caso nao consiga joga uma sqlexception
-    {
-        
-        if(cliente.getCpf()!= null)//se tiver cpf no banco apenas atualize
-        {
-            
-            atualizar(cliente);
-            
-        }
-        else//se não tiver login no banco, insira no banco
-        {
-            
-            inserir(cliente);
-            
-        }    
-        
-    }        
+   
 }

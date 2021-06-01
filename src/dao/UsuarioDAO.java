@@ -20,11 +20,11 @@ public class UsuarioDAO
     }
     
     //função inserir
-    public Usuario inserir(Usuario usuario) throws SQLException//passar para a função um usuario do tipo usuario dentro de entidade, caso nao consiga joga uma sqlexception
+    public void inserir(Usuario usuario) throws SQLException//passar para a função um usuario do tipo usuario dentro de entidade, caso nao consiga joga uma sqlexception
     {
             //jogue na string sql o comando sql os valores respectivos no banco de dados
             String sql = "INSERT INTO usuario(nome,cargo,login,senha,email) values (?,?,?,?,?); ";//cria string sql
-            PreparedStatement stmt = conexao.prepareStatement(sql,PreparedStatement.RETURN_GENERATED_KEYS);
+            PreparedStatement stmt = conexao.prepareStatement(sql);
             
             stmt.setString(1,usuario.getNome());//statement seta string 1=? o que vir de usuario.getNome()
             stmt.setString(2,usuario.getCargo());//statement seta string 2=? o que vir de usuario.getCargo()
@@ -33,45 +33,17 @@ public class UsuarioDAO
             stmt.setString(5, usuario.getEmail());//statement seta string 5=? o que vir de usuario.getEmail()
             
             //efetua a execução no banco de dados
-            stmt.executeUpdate();
-            
-                    ResultSet resultSet = stmt.getGeneratedKeys();
-                          
-             if (resultSet.next()) 
-             {
-                    String nome = resultSet.getString("nome");
-                    usuario.setNome(nome);
-             }
+            stmt.execute();
 
-             return usuario;
-             
     }               
-    
-    //função atualizar
-    public void atualizar(Usuario usuario) throws SQLException //passar para a função um usuario do tipo usuario dentro de entidade, caso nao consiga joga uma sqlexception
-    {
-        
-        String sql = "UPDATE usuario SET nome = ?, cargo = ?, login = ?, senha = ?, email = ? where login = ? ";//cria string sql
-        PreparedStatement stmt = conexao.prepareStatement(sql);
-        
-        stmt.setString(1, usuario.getNome());//statement seta string 1=? o que vir de usuario.getNome()
-        stmt.setString(2, usuario.getCargo());//statement seta string 2=? o que vir de usuario.getCargo()
-        stmt.setString(3, usuario.getLogin());//statement seta string 3=? o que vir de usuario.getLogin()
-        stmt.setString(4, usuario.getSenha());//statement seta string 4=? o que vir de usuario.getSenha()
-        stmt.setString(5, usuario.getEmail());//statement seta string 5=? o que vir de usuario.getEmail()
-        
-        stmt.execute();//efetua a execução no banco de dados
-        
-    }
-    
     //função excluir
     public void deletar(Usuario usuario) throws SQLException
     {
         
-        String sql = "DELETE FROM usuario WHERE login = ?";//cria string sql
+        String sql = "DELETE FROM usuario WHERE nome = ?";//cria string sql
         PreparedStatement stmt = conexao.prepareStatement(sql);
         
-        stmt.setString(1, usuario.getLogin());//statement seta string 1=? o que vir de usuario.getLogin()
+        stmt.setString(1, usuario.getNome());//statement seta string 1=? o que vir de usuario.getNome()
         stmt.execute();//efetua a execução no banco de dados
         
     }       
@@ -98,11 +70,11 @@ public class UsuarioDAO
         while(resultSet.next())//enquanto estiver lendo linhas
         {
             
-            String nome = resultSet.getString("nome");//o que vir de resultset.getString("nome");
-            String cargo = resultSet.getString("cargo");//o que vir de resultset.getString("cargo");
-            String login = resultSet.getString("login");//o que vir de resultset.getString("login");
-            String senha = resultSet.getString("senha");//o que vir de resultset.getString("senha");
-            String email = resultSet.getString("email");//o que vir de resultset.getString("email");         
+            String nome = resultSet.getString("nome");
+            String cargo = resultSet.getString("cargo");
+            String login = resultSet.getString("login");
+            String senha = resultSet.getString("senha");
+            String email = resultSet.getString("email");         
             
             Usuario usuariocomBancoDados = new Usuario(nome, cargo, login, senha, email);
             usuarios.add(usuariocomBancoDados);
@@ -141,23 +113,4 @@ public class UsuarioDAO
         return resultSet.next();//enquanto o resultset tiver uma proxima linha
         
     }
-    
-    //função inserirouatualizar
-    public void inserirOuAtualizar(Usuario usuario) throws SQLException//passar para a função um usuario do tipo usuario dentro de entidade, caso nao consiga joga uma sqlexception
-    {
-        
-        if(usuario.getLogin() != null)//se tiver login no banco apenas atualize
-        {
-        
-            atualizar(usuario);
-        
-        }
-        else//se não tiver login no banco, insira no banco
-        {
-            
-            inserir(usuario);
-            
-        }    
-    }     
-
 }
