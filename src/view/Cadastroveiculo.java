@@ -271,24 +271,45 @@ public class Cadastroveiculo extends javax.swing.JInternalFrame {
 
     private void btnConsultar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultar1ActionPerformed
         // TODO add your handling code here:
+        //controller
     }//GEN-LAST:event_btnConsultar1ActionPerformed
 
     private void btnConsultar1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnConsultar1KeyPressed
-        // TODO add your handling code here:
+        //entrar apertando enter
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+        {
+
+            
+            
+        }
     }//GEN-LAST:event_btnConsultar1KeyPressed
 
     private void btnCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrar1ActionPerformed
-        // TODO add your handling code here:
+	//quando clicar no botao chamar o controlador para salvar um usuario
+        controller.inserir();  
     }//GEN-LAST:event_btnCadastrar1ActionPerformed
 
     private void btnCadastrar1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCadastrar1KeyPressed
-        // TODO add your handling code here:
+        //entrar apertando enter
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+        {
+            
+	//quando clicar no botao chamar o controlador para salvar um veiculo
+        controller.inserir();            
+            
+        }
+        else
+        {
+            
+            JOptionPane.showMessageDialog(this, "Usuario e/ou senha invalidos!");
+            
+        }
     }//GEN-LAST:event_btnCadastrar1KeyPressed
 
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
 
-        //quando clicar no botao chamar o controlador para salvar um usuario
-        controller.inserir();
+        //quando clicar no botao chamar o controlador para deletar um veiculo
+        //controller.
     }//GEN-LAST:event_btnDeletarActionPerformed
 
     private void btnDeletarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnDeletarKeyPressed
@@ -296,15 +317,8 @@ public class Cadastroveiculo extends javax.swing.JInternalFrame {
         if(evt.getKeyCode()==KeyEvent.VK_ENTER)
         {
 
-            //quando clicar no botao chamar o controlador para salvar um usuario
-            controller.inserir();
-
-        }
-        else
-        {
-
-            JOptionPane.showMessageDialog(this, "Usuario e/ou senha invalidos!");
-
+            
+            
         }
     }//GEN-LAST:event_btnDeletarKeyPressed
     //metodos getters e setters    

@@ -243,10 +243,17 @@ public class Cadastrocliente extends javax.swing.JInternalFrame {
 
     private void btnConsultar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultar1ActionPerformed
         // TODO add your handling code here:
+        //controller
     }//GEN-LAST:event_btnConsultar1ActionPerformed
 
     private void btnConsultar1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnConsultar1KeyPressed
-        // TODO add your handling code here:
+        //entrar apertando enter
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+        {
+
+            
+            
+        }
     }//GEN-LAST:event_btnConsultar1KeyPressed
 
     private void btnCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrar1ActionPerformed
@@ -260,7 +267,7 @@ public class Cadastrocliente extends javax.swing.JInternalFrame {
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
 
         //quando clicar no botao chamar o controlador para salvar um usuario
-        controller.inserir();
+        //controller
 
     }//GEN-LAST:event_btnDeletarActionPerformed
 

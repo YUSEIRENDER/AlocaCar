@@ -210,8 +210,8 @@ public class Cadastrologin extends javax.swing.JInternalFrame {
 
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
 
-        //quando clicar no botao chamar o controlador para salvar um usuario
-        
+        //quando clicar no botao chamar o controlador para deletar um usuario
+        //controller
         
     }//GEN-LAST:event_btnDeletarActionPerformed
 
@@ -262,7 +262,13 @@ public class Cadastrologin extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextEmailKeyPressed
 
     private void btnDeletarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnDeletarKeyPressed
+        //entrar apertando enter
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+        {
 
+            
+            
+        }
     }//GEN-LAST:event_btnDeletarKeyPressed
 
     private void btnCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrar1ActionPerformed
@@ -289,10 +295,17 @@ public class Cadastrologin extends javax.swing.JInternalFrame {
 
     private void btnConsultar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultar1ActionPerformed
         // TODO add your handling code here:
+        //controller
     }//GEN-LAST:event_btnConsultar1ActionPerformed
 
     private void btnConsultar1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnConsultar1KeyPressed
-        // TODO add your handling code here:
+        //entrar apertando enter
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+        {
+
+            
+            
+        }
     }//GEN-LAST:event_btnConsultar1KeyPressed
 
     //metodos getters e setters da view
