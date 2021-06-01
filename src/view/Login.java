@@ -54,7 +54,7 @@ public class Login extends javax.swing.JFrame {
         jLblLogin1.setForeground(new java.awt.Color(255, 255, 255));
         jLblLogin1.setText("Login:");
         getContentPane().add(jLblLogin1);
-        jLblLogin1.setBounds(350, 240, 60, 17);
+        jLblLogin1.setBounds(380, 240, 60, 17);
 
         jTextLogin1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -62,7 +62,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextLogin1);
-        jTextLogin1.setBounds(350, 260, 160, 22);
+        jTextLogin1.setBounds(380, 260, 160, 22);
 
         jTextSenha.setText("jPasswordField1");
         jTextSenha.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -71,13 +71,13 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextSenha);
-        jTextSenha.setBounds(350, 320, 160, 22);
+        jTextSenha.setBounds(380, 320, 160, 22);
 
         jLblSenha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLblSenha.setForeground(new java.awt.Color(255, 255, 255));
         jLblSenha.setText("Senha:");
         getContentPane().add(jLblSenha);
-        jLblSenha.setBounds(350, 290, 60, 17);
+        jLblSenha.setBounds(380, 290, 60, 17);
 
         btnSair.setBackground(new java.awt.Color(0, 102, 102));
         btnSair.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
@@ -89,7 +89,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSair);
-        btnSair.setBounds(350, 350, 59, 21);
+        btnSair.setBounds(380, 350, 59, 21);
 
         btnEntrar2.setBackground(new java.awt.Color(0, 102, 102));
         btnEntrar2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
@@ -106,7 +106,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnEntrar2);
-        btnEntrar2.setBounds(438, 350, 75, 21);
+        btnEntrar2.setBounds(470, 350, 75, 21);
 
         jLabelImgLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/login.png"))); // NOI18N
         getContentPane().add(jLabelImgLogin);

@@ -143,11 +143,6 @@ public class Cadastrologin extends javax.swing.JInternalFrame {
                 btnDeletarActionPerformed(evt);
             }
         });
-        btnDeletar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnDeletarKeyPressed(evt);
-            }
-        });
         getContentPane().add(btnDeletar);
         btnDeletar.setBounds(300, 380, 100, 20);
 
@@ -175,11 +170,6 @@ public class Cadastrologin extends javax.swing.JInternalFrame {
         btnConsultar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConsultar1ActionPerformed(evt);
-            }
-        });
-        btnConsultar1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnConsultar1KeyPressed(evt);
             }
         });
         getContentPane().add(btnConsultar1);
@@ -261,16 +251,6 @@ public class Cadastrologin extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jTextEmailKeyPressed
 
-    private void btnDeletarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnDeletarKeyPressed
-        //entrar apertando enter
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
-        {
-
-            
-            
-        }
-    }//GEN-LAST:event_btnDeletarKeyPressed
-
     private void btnCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrar1ActionPerformed
 	//quando clicar no botao chamar o controlador para salvar um usuario
         controller.inserir();  
@@ -297,16 +277,6 @@ public class Cadastrologin extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         //controller
     }//GEN-LAST:event_btnConsultar1ActionPerformed
-
-    private void btnConsultar1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnConsultar1KeyPressed
-        //entrar apertando enter
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
-        {
-
-            
-            
-        }
-    }//GEN-LAST:event_btnConsultar1KeyPressed
 
     //metodos getters e setters da view
     

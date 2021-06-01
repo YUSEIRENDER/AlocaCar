@@ -77,11 +77,6 @@ public class Cadastroveiculo extends javax.swing.JInternalFrame {
                 btnConsultar1ActionPerformed(evt);
             }
         });
-        btnConsultar1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnConsultar1KeyPressed(evt);
-            }
-        });
         getContentPane().add(btnConsultar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, -1, -1));
 
         btnCadastrar1.setBackground(new java.awt.Color(0, 102, 102));
@@ -107,11 +102,6 @@ public class Cadastroveiculo extends javax.swing.JInternalFrame {
         btnDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeletarActionPerformed(evt);
-            }
-        });
-        btnDeletar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnDeletarKeyPressed(evt);
             }
         });
         getContentPane().add(btnDeletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 470, -1, -1));
@@ -274,16 +264,6 @@ public class Cadastroveiculo extends javax.swing.JInternalFrame {
         //controller
     }//GEN-LAST:event_btnConsultar1ActionPerformed
 
-    private void btnConsultar1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnConsultar1KeyPressed
-        //entrar apertando enter
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
-        {
-
-            
-            
-        }
-    }//GEN-LAST:event_btnConsultar1KeyPressed
-
     private void btnCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrar1ActionPerformed
 	//quando clicar no botao chamar o controlador para salvar um usuario
         controller.inserir();  
@@ -311,16 +291,6 @@ public class Cadastroveiculo extends javax.swing.JInternalFrame {
         //quando clicar no botao chamar o controlador para deletar um veiculo
         //controller.
     }//GEN-LAST:event_btnDeletarActionPerformed
-
-    private void btnDeletarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnDeletarKeyPressed
-        //entrar apertando enter
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
-        {
-
-            
-            
-        }
-    }//GEN-LAST:event_btnDeletarKeyPressed
     //metodos getters e setters    
     public JTable getjTable1() {
         return jTable1;

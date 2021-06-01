@@ -165,11 +165,6 @@ public class Cadastrocliente extends javax.swing.JInternalFrame {
                 btnConsultar1ActionPerformed(evt);
             }
         });
-        btnConsultar1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnConsultar1KeyPressed(evt);
-            }
-        });
         getContentPane().add(btnConsultar1);
         btnConsultar1.setBounds(230, 410, 100, 20);
 
@@ -197,11 +192,6 @@ public class Cadastrocliente extends javax.swing.JInternalFrame {
         btnDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeletarActionPerformed(evt);
-            }
-        });
-        btnDeletar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnDeletarKeyPressed(evt);
             }
         });
         getContentPane().add(btnDeletar);
@@ -246,16 +236,6 @@ public class Cadastrocliente extends javax.swing.JInternalFrame {
         //controller
     }//GEN-LAST:event_btnConsultar1ActionPerformed
 
-    private void btnConsultar1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnConsultar1KeyPressed
-        //entrar apertando enter
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
-        {
-
-            
-            
-        }
-    }//GEN-LAST:event_btnConsultar1KeyPressed
-
     private void btnCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrar1ActionPerformed
         // TODO add your handling code here:
         //quando clicar no botao chamar o controlador para salvar um cliente
@@ -285,23 +265,6 @@ public class Cadastrocliente extends javax.swing.JInternalFrame {
         //controller
 
     }//GEN-LAST:event_btnDeletarActionPerformed
-
-    private void btnDeletarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnDeletarKeyPressed
-        //entrar apertando enter
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
-        {
-
-            //quando clicar no botao chamar o controlador para salvar um usuario
-            controller.inserir();
-
-        }
-        else
-        {
-
-            JOptionPane.showMessageDialog(this, "Usuario e/ou senha invalidos!");
-
-        }
-    }//GEN-LAST:event_btnDeletarKeyPressed
 
     private void jTextNome1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextNome1KeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER)//ao pressionar botao enter peça o foco
