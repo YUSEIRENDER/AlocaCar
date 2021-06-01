@@ -281,7 +281,7 @@ public class Cadastrocliente extends javax.swing.JInternalFrame {
 
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
 
-        //quando clicar no botao chamar o controlador para salvar um usuario
+        //quando clicar no botao chamar o controlador para deletar um usuario
         //controller
 
     }//GEN-LAST:event_btnDeletarActionPerformed
