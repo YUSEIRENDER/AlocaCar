@@ -32,7 +32,7 @@ public class ClienteHelper {
     }
     
     //função setar
-    public void Cliente setCliente(Cliente cliente)        
+    public void setCliente(Cliente cliente)        
     {
         
         String nomecliente = cliente.getNomecliente();
@@ -46,7 +46,10 @@ public class ClienteHelper {
         view.getjTextEndereco().setText(endereco);
         view.getjTextUF1().setText(uf);
         view.getjTextTelefone().setText(telefone);
-        view.getjTextCPF().setText(cpf);
+        view.getjTextCPF().setText(String.valueOf(cpf));
+        view.getjTextEmail().setText(email);
+        
+        
 
         
     }        
