@@ -5,6 +5,7 @@
  */
 package controller.helpers;
 
+import model.Usuario;
 import view.Login;
 
 
@@ -18,5 +19,28 @@ public class LoginHelper {
         this.view = view;
     }
     
+    //função obter
+    public Usuario obterUsuarioSenha()
+    {
+        
+        //buscar um usuario da view
+        String usuario = view.getjTextLogin1().getText();//usuario recebe view como parametro e busca o campo jTextLogin1 e pega o texto dele
+        String senha = view.getjTextSenha().getText();//usuario recebe view como parametro e busca o campo jTextSenha e pega o texto dele
+        
+        Usuario userAutenticar = new Usuario(usuario, senha);
+        return userAutenticar; 
+        
+    }
+    
+    //função setar
+    public void setarUsuarioSenha(Usuario userAutenticar)
+    {
+        
+        String login = userAutenticar.getNome();
+        String senha = userAutenticar.getSenha();
+        
+        view.getjTextLogin1().setText(login);
+        view.getjTextSenha().setText(senha);
+    }        
     
 }
