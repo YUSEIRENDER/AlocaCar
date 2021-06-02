@@ -50,6 +50,7 @@ public class Cadastroveiculo extends javax.swing.JInternalFrame {
         jTextFabricante = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
+        setClosable(true);
         setTitle("Cadastro veiculo");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

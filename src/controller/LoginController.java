@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import model.Usuario;
 import view.Login;
-import view.Menu;
+import view.MenuPrincipal;
 
 public class LoginController 
 {
@@ -40,7 +40,7 @@ public class LoginController
         if(existe)
         {
             
-            Menu telaMenu = new Menu();
+            MenuPrincipal telaMenu = new MenuPrincipal();
             telaMenu.setVisible(true);//torna a view menu visivel         
             telaMenu.setExtendedState(MAXIMIZED_BOTH);
             telaMenu.setLocationRelativeTo(null);        
@@ -54,7 +54,4 @@ public class LoginController
             
         }    
     }
-    
-    
-    
 }

@@ -21,7 +21,8 @@ public class FormCadastrologinController
     public FormCadastrologinController(Cadastrologin view)
     {
         this.view = view;
-    }
+        
+    }       
     
     public void inserir()
     {
@@ -35,23 +36,34 @@ public class FormCadastrologinController
         
         Usuario user = new Usuario(nome, cargo, login, senha, email);
         
-        try
-        {
+            //valida campos
+            if(user.getNome().isEmpty() || user.getCargo().isEmpty() || user.getLogin().isEmpty() || user.getSenha().isEmpty() || user.getEmail().isEmpty())
+            {
+                
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
+                
+            }
+            else
+            {//se estiverem preenchidos faça
+                
+                try
+                {
             
-            Connection conexao = new Conexao().getConnection();
-            UsuarioDAO usuarioDao = new UsuarioDAO(conexao);
-            usuarioDao.inserir(user);
+                    Connection conexao = new Conexao().getConnection();
+                    UsuarioDAO usuarioDao = new UsuarioDAO(conexao);
+                    usuarioDao.inserir(user);
             
-            JOptionPane.showMessageDialog(null, "Usuario inserido com sucesso!");
+                    JOptionPane.showMessageDialog(null, "Usuario inserido com sucesso!");   
             
-        }
-        catch(SQLException ex)
-        {
+                }
+                catch(SQLException ex)
+                {
             
-            Logger.getLogger(Cadastrologin.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Cadastrologin.class.getName()).log(Level.SEVERE, null, ex);
             
-        }            
-        
+                }            
+                                                
+            }    
         
     }        
     

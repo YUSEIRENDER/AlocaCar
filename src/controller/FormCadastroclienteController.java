@@ -34,23 +34,32 @@ public class FormCadastroclienteController {
        
        Cliente cliente = new Cliente(nomecliente, endereco, uf, telefone, cpf, email);
        
-       try
+       if(nomecliente.isEmpty() || endereco.isEmpty() || uf.isEmpty() || telefone.isEmpty() || cpf == 0 || email.isEmpty())
        {
            
-           Connection conexao = new Conexao().getConnection();
-           ClienteDAO clienteDao = new ClienteDAO(conexao);
-           clienteDao.inserir(cliente);
-           
-           JOptionPane.showMessageDialog(null, "Cliente inserido com sucesso!");
+           JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
            
        }
-       catch(SQLException ex)
+       else
        {
            
-           Logger.getLogger(Cadastrocliente.class.getName()).log(Level.SEVERE, null, ex);
-           
-       }    
-        
+           try
+           {
+               
+               Connection conexao = new Conexao().getConnection();
+               ClienteDAO clienteDao = new ClienteDAO(conexao);
+               clienteDao.inserir(cliente);
+               
+               JOptionPane.showMessageDialog(null, "Cliente inserido com sucesso!");
+               
+           }
+           catch(SQLException ex)
+           {
+               
+               Logger.getLogger(Cadastrocliente.class.getName()).log(Level.SEVERE, null, ex);
+               
+           }     
+       }      
     }       
     
 }

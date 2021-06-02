@@ -38,21 +38,33 @@ public class FormCadastroveiculoController {
         
         Veiculo veiculo = new Veiculo(numero, placa, fabricante, modelo, anomodelo, qtdportas, acessorios);
         
-        try
+        //valida campos
+        if(numero.isEmpty() || placa.isEmpty()|| fabricante.isEmpty()|| modelo.isEmpty()|| anomodelo == 0 || qtdportas == 0 || acessorios.isEmpty())
         {
             
-            Connection conexao = new Conexao().getConnection();
-            VeiculoDAO veiculoDao = new VeiculoDAO(conexao);
-            veiculoDao.inserir(veiculo);
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
             
-            JOptionPane.showMessageDialog(null, "Veiculo inserido com sucesso!");
         }
-        catch (SQLException ex)
+        else
         {
             
-            Logger.getLogger(Cadastrocliente.class.getName()).log(Level.SEVERE, null, ex);
-            
+            try
+            {
+                
+                Connection conexao = new Conexao().getConnection();
+                VeiculoDAO veiculoDao = new VeiculoDAO(conexao);
+                veiculoDao.inserir(veiculo);
+                
+                JOptionPane.showMessageDialog(null, "Veiculo inserido com sucesso!");
+            }
+            catch (SQLException ex)
+            {
+                
+                Logger.getLogger(Cadastrocliente.class.getName()).log(Level.SEVERE, null, ex);
+                
+            }    
         }    
+  
     }        
     
 }

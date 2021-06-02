@@ -75,7 +75,6 @@ public class Cadastrologin extends javax.swing.JInternalFrame {
         getContentPane().add(jTextNome);
         jTextNome.setBounds(270, 170, 160, 22);
 
-        jTextSenha.setText("jPasswordField1");
         jTextSenha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextSenhaKeyPressed(evt);
@@ -177,10 +176,7 @@ public class Cadastrologin extends javax.swing.JInternalFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Nome", "Cargo", "Login", "Senha", "Email"
