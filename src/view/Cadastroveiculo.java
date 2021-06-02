@@ -34,10 +34,10 @@ public class Cadastroveiculo extends javax.swing.JInternalFrame {
         btnConsultar1 = new javax.swing.JButton();
         btnCadastrar1 = new javax.swing.JButton();
         btnDeletar = new javax.swing.JButton();
-        jTextNome1 = new javax.swing.JTextField();
+        jTextNumero = new javax.swing.JTextField();
         jTextPlaca = new javax.swing.JTextField();
         jLblPlaca = new javax.swing.JLabel();
-        jLblNome = new javax.swing.JLabel();
+        jLblNumero = new javax.swing.JLabel();
         jLblQtdportas = new javax.swing.JLabel();
         jTextQtdportas = new javax.swing.JTextField();
         jLblAcessorios = new javax.swing.JLabel();
@@ -106,12 +106,12 @@ public class Cadastroveiculo extends javax.swing.JInternalFrame {
         });
         getContentPane().add(btnDeletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 470, -1, -1));
 
-        jTextNome1.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextNumero.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextNome1KeyPressed(evt);
+                jTextNumeroKeyPressed(evt);
             }
         });
-        getContentPane().add(jTextNome1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 170, 22));
+        getContentPane().add(jTextNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 170, 22));
 
         jTextPlaca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -125,10 +125,10 @@ public class Cadastroveiculo extends javax.swing.JInternalFrame {
         jLblPlaca.setText("Placa:");
         getContentPane().add(jLblPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, -1, -1));
 
-        jLblNome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLblNome.setForeground(new java.awt.Color(255, 255, 255));
-        jLblNome.setText("Nome:");
-        getContentPane().add(jLblNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, -1, -1));
+        jLblNumero.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLblNumero.setForeground(new java.awt.Color(255, 255, 255));
+        jLblNumero.setText("Numero:");
+        getContentPane().add(jLblNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, -1, -1));
 
         jLblQtdportas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLblQtdportas.setForeground(new java.awt.Color(255, 255, 255));
@@ -196,14 +196,14 @@ public class Cadastroveiculo extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextNome1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextNome1KeyPressed
+    private void jTextNumeroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextNumeroKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER)//ao pressionar botao enter peça o foco
         {
 
             jTextPlaca.requestFocus();
 
         }
-    }//GEN-LAST:event_jTextNome1KeyPressed
+    }//GEN-LAST:event_jTextNumeroKeyPressed
 
     private void jTextPlacaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextPlacaKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER)//ao pressionar botao enter peça o foco
@@ -333,11 +333,11 @@ public class Cadastroveiculo extends javax.swing.JInternalFrame {
     }
 
     public JTextField getjTextNome1() {
-        return jTextNome1;
+        return jTextNumero;
     }
 
     public void setjTextNome1(JTextField jTextNome1) {
-        this.jTextNome1 = jTextNome1;
+        this.jTextNumero = jTextNome1;
     }
 
     public JTextField getjTextPlaca() {
@@ -365,7 +365,7 @@ public class Cadastroveiculo extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLblAnomodelo;
     private javax.swing.JLabel jLblFabricante;
     private javax.swing.JLabel jLblModelo;
-    private javax.swing.JLabel jLblNome;
+    private javax.swing.JLabel jLblNumero;
     private javax.swing.JLabel jLblPlaca;
     private javax.swing.JLabel jLblQtdportas;
     private javax.swing.JScrollPane jScrollPane1;
@@ -374,7 +374,7 @@ public class Cadastroveiculo extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextAnomodelo;
     private javax.swing.JTextField jTextFabricante;
     private javax.swing.JTextField jTextModelo;
-    private javax.swing.JTextField jTextNome1;
+    private javax.swing.JTextField jTextNumero;
     private javax.swing.JTextField jTextPlaca;
     private javax.swing.JTextField jTextQtdportas;
     // End of variables declaration//GEN-END:variables

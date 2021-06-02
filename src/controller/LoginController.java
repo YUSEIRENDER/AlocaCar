@@ -3,6 +3,7 @@ package controller;
 import controller.helpers.LoginHelper;
 import dao.Conexao;
 import dao.UsuarioDAO;
+import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.sql.Connection;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -33,14 +34,16 @@ public class LoginController
         UsuarioDAO usuarioDao = new UsuarioDAO(conexao);
         
         //existe no banco?
-        boolean existe = usuarioDao.existeUsuarioeSenha(usuario);//jogue em existe se existir ou não no banco de dados
+        boolean existe = usuarioDao.existeUsuarioeSenha(usuario);//jogue em existe se existir ou não no banco de dados   
         
         //se existir direciona para menu
         if(existe)
         {
             
             Menu telaMenu = new Menu();
-            telaMenu.setVisible(true);//torna a view menu visivel  
+            telaMenu.setVisible(true);//torna a view menu visivel         
+            telaMenu.setExtendedState(MAXIMIZED_BOTH);
+            telaMenu.setLocationRelativeTo(null);        
             this.view.dispose();//esconde a iew login ao abrir o menu
             
         }
