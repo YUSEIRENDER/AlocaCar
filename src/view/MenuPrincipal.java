@@ -85,6 +85,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu2.add(jMenuItem3);
 
         jMenuItem4.setText("Cadastro veliculo");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem4);
 
         jMenuBar1.add(jMenu2);
@@ -120,9 +125,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         //entrar na tela cadastro login
-        //Cadastrologin cadLogin = new Cadastrologin();
-        //cadLogin.setVisible(true);
-        //jTelaTrabalho.add(cadLogin);
+        Cadastrologin cadLogin = new Cadastrologin();
+        cadLogin.setVisible(true);
+        jTelaTrabalho.add(cadLogin);
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -134,8 +139,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-        //this.controller.navegarparaCliente();
+        Cadastrocliente cadCliente = new Cadastrocliente();
+        cadCliente.setVisible(true);
+        jTelaTrabalho.add(cadCliente);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        Cadastroveiculo cadVeiculo = new Cadastroveiculo();
+        cadVeiculo.setVisible(true);
+        jTelaTrabalho.add(cadVeiculo);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -33,7 +33,7 @@ public class ClienteDAO
             stmt.setString(2,cliente.getEndereco());//statement seta string 2=? o que vir de cliente.getEndereco()
             stmt.setString(3,cliente.getUf());//statement seta string 3=? o que vir de cliente.getUf().
             stmt.setString(4,cliente.getTelefone());//statement seta string 4=? o que vir de cliente.getTelefone()
-            stmt.setInt(5, cliente.getCpf());//statement seta string 5=? o que vir de cliente.getCpf()
+            stmt.setLong(5, cliente.getCpf());//statement seta string 5=? o que vir de cliente.getCpf()
             stmt.setString(6, cliente.getEmail());//statement seta string 6=? o que vier de cliente.getEmail()
             
             //efetua a execução no banco de dados
@@ -47,7 +47,7 @@ public class ClienteDAO
         String sql = "DELETE FROM cliente WHERE cpf = ?";//cria string sql
         PreparedStatement stmt = conexao.prepareStatement(sql);
         
-        stmt.setInt(1, cliente.getCpf());//statement seta string 1=? o que vir de cliente.getCpf()
+        stmt.setLong(1, cliente.getCpf());//statement seta string 1=? o que vir de cliente.getCpf()
         stmt.execute();//efetua a execução no banco de dados
         
     }
@@ -79,7 +79,7 @@ public class ClienteDAO
             String endereco = resultSet.getString("endereco");//o que vir de resultset.getString("endereco");
             String uf = resultSet.getString("uf");//o que vir de resultset.getString("uf");
             String telefone = resultSet.getString("telefone");//o que vir de resultset.getString("telefone");
-            int cpf = resultSet.getInt("cpf");//o que vir de resultset.getString("cpf");       
+            Long cpf = resultSet.getLong("cpf");//o que vir de resultset.getString("cpf");       
             String email = resultSet.getString("email");//o que vier de resultset.getString("email")
             
             Cliente clientecomBancoDados = new Cliente(nomecliente, endereco, uf, telefone, cpf, email);
@@ -96,7 +96,7 @@ public class ClienteDAO
         String sql = "SELECT * FROM  cliente WHERE cpf = ?";//cria string sql
         PreparedStatement stmt = conexao.prepareStatement(sql);
         
-        stmt.setInt(1, cliente.getCpf());//statement seta string 1=? o que vir de cliente.getCpf();
+        stmt.setLong(1, cliente.getCpf());//statement seta string 1=? o que vir de cliente.getCpf();
         
         return pesquisa(stmt).get(0);//chama metodo pesquisa que retorna lista de clientes e pegue o primeiro na lista de clientes
         

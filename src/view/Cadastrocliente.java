@@ -5,6 +5,7 @@
  */
 package view;
 
+import controller.FormCadastroclienteController;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -16,12 +17,12 @@ import javax.swing.JTextField;
  */
 public class Cadastrocliente extends javax.swing.JInternalFrame {
 
-    
+    private final FormCadastroclienteController controller;//criar campo controller em view
     
     public Cadastrocliente() {
         initComponents();
         //adicionar controlador a view
-        
+        controller = new FormCadastroclienteController(this);
     }
 
     /**
@@ -199,7 +200,7 @@ public class Cadastrocliente extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1004, 456);
 
-        setBounds(0, 0, 1017, 483);
+        setBounds(0, 0, 1005, 483);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextEnderecoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextEnderecoKeyPressed
@@ -237,6 +238,7 @@ public class Cadastrocliente extends javax.swing.JInternalFrame {
     private void btnCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrar1ActionPerformed
         // TODO add your handling code here:
         //quando clicar no botao chamar o controlador para salvar um cliente
+        controller.inserir();
     }//GEN-LAST:event_btnCadastrar1ActionPerformed
 
     private void btnCadastrar1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCadastrar1KeyPressed

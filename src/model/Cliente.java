@@ -7,11 +7,11 @@ public class Cliente {
     private String endereco;
     private String uf;
     private String telefone;
-    private Integer cpf;
+    private Long cpf;
     private String email;
 
     //metodo construtor
-    public Cliente(String nomecliente, String endereco, String uf, String telefone, Integer cpf, String email) {
+    public Cliente(String nomecliente, String endereco, String uf, String telefone, Long cpf, String email) {
         this.nomecliente = nomecliente;
         this.endereco = endereco;
         this.uf = uf;
@@ -53,11 +53,11 @@ public class Cliente {
         this.telefone = telefone;
     }
 
-    public Integer getCpf() {
+    public Long getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(Long cpf) {
         this.cpf = cpf;
     }
 

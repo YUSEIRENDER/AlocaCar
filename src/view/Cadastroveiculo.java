@@ -56,10 +56,7 @@ public class Cadastroveiculo extends javax.swing.JInternalFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Nome", "Placa", "Fabricante", "Modelo", "Ano Modelo", "Qtd Portas", "Acessorios"

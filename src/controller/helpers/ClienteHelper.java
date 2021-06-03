@@ -23,7 +23,7 @@ public class ClienteHelper {
         String endereco = view.getjTextEndereco().getText();//endereco recebe view como parametro e busca o campo JTextEndereco e pega o texto dele
         String uf = view.getjTextUF1().getText();//uf recebe view como parameto e busca o campo JTxtUf e pega o texto dele
         String telefone = view.getjTextTelefone().getText();//telefone recebe view como parametro e busca o campo JtxtTelefone e pega o texto dele
-        int cpf = Integer.parseInt(view.getjTextCPF().getText());//cpf recebe view como parametro e busca o campo jTextCpf e pega o texto dele
+        Long cpf = Long.parseLong(view.getjTextCPF().getText());//cpf recebe view como parametro e busca o campo jTextCpf e pega o texto dele
         String email = view.getjTextEmail().getText();//email recebe view como parameto e busca o campo jTxtEmail e pega o texto dele
         
         Cliente cliente = new Cliente(nomecliente, endereco, uf, telefone, cpf, email);
@@ -39,7 +39,7 @@ public class ClienteHelper {
         String endereco = cliente.getEndereco();
         String uf = cliente.getUf();
         String telefone = cliente.getTelefone();
-        int cpf = cliente.getCpf();
+        Long cpf = cliente.getCpf();
         String email = cliente.getEmail();
         
         view.getjTextNome1().setText(nomecliente);
