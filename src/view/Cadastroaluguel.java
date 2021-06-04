@@ -6,6 +6,7 @@
 package view;
 
 import com.toedter.calendar.JDateChooser;
+import controller.FormCadastroAluguelController;
 import java.awt.event.KeyEvent;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -17,12 +18,13 @@ import javax.swing.JTextField;
  * @author marco
  */
 public class Cadastroaluguel extends javax.swing.JInternalFrame {
-
+    
     /**
      * Creates new form Cadastroaluguel
      */
     public Cadastroaluguel() {
         initComponents();
+        //quero que um controller controle a view
     }
 
     /**
@@ -43,6 +45,8 @@ public class Cadastroaluguel extends javax.swing.JInternalFrame {
         jLblcliente1 = new javax.swing.JLabel();
         jLblobservacao = new javax.swing.JLabel();
         jTextObservacao = new javax.swing.JTextField();
+        jLbId = new javax.swing.JLabel();
+        jTextId = new javax.swing.JTextField();
         jTextEntregue = new javax.swing.JTextField();
         jComboBoxCliente = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -96,6 +100,14 @@ public class Cadastroaluguel extends javax.swing.JInternalFrame {
         jLblobservacao.setBounds(330, 380, 90, 17);
         getContentPane().add(jTextObservacao);
         jTextObservacao.setBounds(330, 400, 160, 22);
+
+        jLbId.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLbId.setForeground(new java.awt.Color(255, 255, 255));
+        jLbId.setText("ID:");
+        getContentPane().add(jLbId);
+        jLbId.setBounds(330, 140, 70, 17);
+        getContentPane().add(jTextId);
+        jTextId.setBounds(330, 160, 160, 22);
         getContentPane().add(jTextEntregue);
         jTextEntregue.setBounds(330, 360, 160, 22);
 
@@ -107,7 +119,7 @@ public class Cadastroaluguel extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Veiculo", "Data aluguel", "Data entrega", "Cliente", "Entregue", "Observação", "Valor pago"
+                "Id", "Veiculo", "Data aluguel", "Data entrega", "Cliente", "Entregue", "Observação", "Valor pago"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -170,7 +182,7 @@ public class Cadastroaluguel extends javax.swing.JInternalFrame {
         getContentPane().add(jLblveiculo);
         jLblveiculo.setBounds(330, 180, 60, 17);
 
-        jLblfundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/loginn4.png"))); // NOI18N
+        jLblfundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/loginn5.png"))); // NOI18N
         getContentPane().add(jLblfundo);
         jLblfundo.setBounds(0, 0, 1170, 510);
 
@@ -209,22 +221,29 @@ public class Cadastroaluguel extends javax.swing.JInternalFrame {
 
         }
     }//GEN-LAST:event_btnCadastrar1KeyPressed
+    
+    public JTextField getjTextId() {
+        return jTextId;
+    }
 
     //metodos getters e setter
-    
-    public JComboBox<String> getjComboBoxCliente() {
+    public void setjTextId(JTextField jTextId) {
+        this.jTextId = jTextId;
+    }
+
+    public JComboBox<Object> getjComboBoxCliente() {
         return jComboBoxCliente;
     }
 
-    public void setjComboBoxCliente(JComboBox<String> jComboBoxCliente) {
+    public void setjComboBoxCliente(JComboBox<Object> jComboBoxCliente) {
         this.jComboBoxCliente = jComboBoxCliente;
     }
 
-    public JComboBox<String> getjComboBoxVeiculo() {
+    public JComboBox<Object> getjComboBoxVeiculo() {
         return jComboBoxVeiculo;
     }
 
-    public void setjComboBoxVeiculo(JComboBox<String> jComboBoxVeiculo) {
+    public void setjComboBoxVeiculo(JComboBox<Object> jComboBoxVeiculo) {
         this.jComboBoxVeiculo = jComboBoxVeiculo;
     }
 
@@ -280,10 +299,11 @@ public class Cadastroaluguel extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnCadastrar1;
     private javax.swing.JButton btnConsultar1;
     private javax.swing.JButton btnDeletar;
-    private javax.swing.JComboBox<String> jComboBoxCliente;
-    private javax.swing.JComboBox<String> jComboBoxVeiculo;
+    private javax.swing.JComboBox<Object> jComboBoxCliente;
+    private javax.swing.JComboBox<Object> jComboBoxVeiculo;
     private com.toedter.calendar.JDateChooser jDateAluguel;
     private com.toedter.calendar.JDateChooser jDateEntrega;
+    private javax.swing.JLabel jLbId;
     private javax.swing.JLabel jLblDataAluguel;
     private javax.swing.JLabel jLblDataAluguel1;
     private javax.swing.JLabel jLblcliente1;
@@ -295,6 +315,7 @@ public class Cadastroaluguel extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextEntregue;
+    private javax.swing.JTextField jTextId;
     private javax.swing.JTextField jTextObservacao;
     private javax.swing.JTextField jTextValorpago;
     // End of variables declaration//GEN-END:variables
