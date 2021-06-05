@@ -45,7 +45,6 @@ public class VeiculoHelper {
         int qtdportas = veiculo.getQtdportas();
         String acessorios = veiculo.getAcessorios();
         
-        view.getjTextNome1().setText(placa);
         
         view.getjTextNome1().setText(numero);
         view.getjTextPlaca().setText(placa);
@@ -56,6 +55,19 @@ public class VeiculoHelper {
         view.getjTextAcessorios().setText(acessorios);
       
         
-    }        
+    }
+    
+        public void limparTela()
+    {
+        
+        view.getjTextNome1().setText("");
+        view.getjTextPlaca().setText("");
+        view.getjTextFabricante().setText("");
+        view.getjTextModelo().setText("");
+        view.getjTextAnomodelo().setText("");      
+        view.getjTextQtdportas().setText("");     
+        view.getjTextAcessorios().setText("");     
+        
+    }      
     
 }

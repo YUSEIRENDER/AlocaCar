@@ -51,4 +51,15 @@ public class ClienteHelper {
         
     }        
     
+        public void limparTela()
+    {
+        
+        view.getjTextNome1().setText("");
+        view.getjTextEndereco().setText("");
+        view.getjTextUF1().setText("");
+        view.getjTextTelefone().setText("");
+        view.getjTextCPF().setText("");
+        view.getjTextEmail().setText("");        
+        
+    }  
 }

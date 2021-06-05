@@ -1,7 +1,10 @@
 package model;
 
-import java.util.ArrayList;
-import java.sql.Date;
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Aluguel 
 {
@@ -13,21 +16,62 @@ public class Aluguel
     private Cliente cliente;
     private String entregue;
     private String observacao;
-    private Double valorpago;
+    private Float valorpago;
     
     //metodo construtor
-    public Aluguel(int idaluguel, Veiculo veiculo, Date dataaluguel, Date dataentrega, Cliente cliente, String entregue, String observacao, Double valorpago) {
+
+    
+    
+    //metodos gettes e setters
+    public Aluguel(int idaluguel, Veiculo veiculo, String dataaluguel, String dataentrega, Cliente cliente, String entregue, String observacao, Float valorpago) {
         this.idaluguel = idaluguel;
         this.veiculo = veiculo;
-        this.dataaluguel = dataaluguel;
-        this.dataentrega = dataentrega;
         this.cliente = cliente;
         this.entregue = entregue;
         this.observacao = observacao;
         this.valorpago = valorpago;
+        //tente data
+        try
+        {
+            
+            this.dataaluguel = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(dataaluguel);
+            this.dataentrega = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(dataentrega);
+            
+        }
+        catch(ParseException ex)
+        {
+            
+            Logger.getLogger(Aluguel.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }            
+        
+    }
+
+    public Aluguel(int idaluguel, Veiculo veiculo, String dataaluguel, String dataentrega, Cliente cliente, String entregue, Float valorpago) {
+        this.idaluguel = idaluguel;
+        this.veiculo = veiculo;
+        this.cliente = cliente;
+        this.entregue = entregue;
+        this.valorpago = valorpago;
+        //tente data
+        try
+        {
+            
+            this.dataaluguel = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(dataaluguel);
+            this.dataentrega = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(dataentrega);
+            
+            
+        }
+        catch(ParseException ex)
+        {
+            
+            Logger.getLogger(Aluguel.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }    
     }
     
-    //metodos gettes e setters
+    //metodos getters e setters
+
     public int getIdaluguel() {
         return idaluguel;
     }
@@ -84,12 +128,12 @@ public class Aluguel
         this.observacao = observacao;
     }
 
-    public Double getValorpago() {
+    public Float getValorpago() {
         return valorpago;
     }
 
-    public void setValorpago(Double valorpago) {
+    public void setValorpago(Float valorpago) {
         this.valorpago = valorpago;
     }
-
+    
 }

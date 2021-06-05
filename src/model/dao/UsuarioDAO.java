@@ -1,4 +1,4 @@
-package dao;
+package model.dao;
 
 import model.Usuario;//importação do usuario no pacote entidades
 import java.sql.Connection;
@@ -6,6 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class UsuarioDAO 
 {
@@ -17,6 +20,10 @@ public class UsuarioDAO
     public UsuarioDAO(Connection conexao) 
     {
         this.conexao = conexao;
+    }
+
+    public UsuarioDAO() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     //função inserir
@@ -113,4 +120,45 @@ public class UsuarioDAO
         return resultSet.next();//enquanto o resultset tiver uma proxima linha
         
     }
+    
+    public List<Usuario> ler() throws SQLException
+    {
+        
+        List<Usuario> usuarios = new ArrayList<>();
+        
+        try 
+        {
+            String sql = "SELECT * FROM usuario ";//cria string sql
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            ResultSet rs = null;
+            rs = stmt.executeQuery();
+            
+            while(rs.next())
+            {
+                
+                Usuario usuario = new Usuario();
+                
+                usuario.setNome(rs.getString("nome"));
+                usuario.setCargo(rs.getString("cargo"));
+                usuario.setLogin(rs.getString("login"));
+                usuario.setSenha(rs.getString("senha"));
+                usuario.setEmail(rs.getString("email"));
+                
+                usuarios.add(usuario);
+                
+            }    
+        } catch (SQLException ex) 
+        {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally
+        {
+            
+            conexao.close();
+            
+        }    
+        
+        return usuarios;
+    }        
+    
 }

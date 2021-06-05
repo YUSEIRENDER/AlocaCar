@@ -1,7 +1,8 @@
 package controller;
 
-import dao.Conexao;
-import dao.UsuarioDAO;
+import controller.helpers.CadloginHelper;
+import model.dao.Conexao;
+import model.dao.UsuarioDAO;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -15,26 +16,18 @@ public class FormCadastrologinController
     
     //view a ser gerenciada pelo controller
     private Cadastrologin view;
-
-    
+    private CadloginHelper helper;
     
     public FormCadastrologinController(Cadastrologin view)
     {
         this.view = view;
-        
+        this.helper = new CadloginHelper(view);
     }       
     
     public void inserir()
     {
         
-        String nome = view.getjTextNome().getText();//nome recebe view como parametro e busca o campo jTextNome e pega o texto dele
-        String cargo = String.valueOf(view.getjComboCargo().getSelectedItem());//cargo recebe valor string que recebe como parametro view que busca o campo 
-        //JCombocargo e pega o item selecionado nele
-        String login = view.getjTextLogin().getText();//usuario recebe view como parametro e busca o campo jTextLogin e pega o texto dele
-        String senha = view.getjTextSenha().getText();//usuario recebe view como parametro e busca o campo jTextSenha e pega o texto dele
-        String email = view.getjTextEmail().getText();//usuario recebe view como parametro e busca o campo jTextEmail e pega o texto dele
-        
-        Usuario user = new Usuario(nome, cargo, login, senha, email);
+            Usuario user = helper.obterUsuario();//pegar modelo da tela no helper
         
             //valida campos
             if(user.getNome().isEmpty() || user.getCargo().isEmpty() || user.getLogin().isEmpty() || user.getSenha().isEmpty() || user.getEmail().isEmpty())
@@ -65,6 +58,5 @@ public class FormCadastrologinController
                                                 
             }    
         
-    }        
-    
+    }       
 }

@@ -5,10 +5,10 @@
  */
 package view;
 
-import com.toedter.calendar.JDateChooser;
 import controller.FormCadastroAluguelController;
 import java.awt.event.KeyEvent;
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -19,12 +19,13 @@ import javax.swing.JTextField;
  */
 public class Cadastroaluguel extends javax.swing.JInternalFrame {
     
-    /**
-     * Creates new form Cadastroaluguel
-     */
+    private final FormCadastroAluguelController controller;//criar campo controller em view
+    
     public Cadastroaluguel() {
         initComponents();
         //quero que um controller controle a view
+        controller = new FormCadastroAluguelController(this);
+        iniciar();
     }
 
     /**
@@ -38,9 +39,9 @@ public class Cadastroaluguel extends javax.swing.JInternalFrame {
 
         jLblDataAluguel = new javax.swing.JLabel();
         jComboBoxVeiculo = new javax.swing.JComboBox<>();
-        jDateAluguel = new com.toedter.calendar.JDateChooser();
         jLblDataAluguel1 = new javax.swing.JLabel();
-        jDateEntrega = new com.toedter.calendar.JDateChooser();
+        jDateEntrega = new javax.swing.JFormattedTextField();
+        jDateAluguel = new javax.swing.JFormattedTextField();
         jLblentregue = new javax.swing.JLabel();
         jLblcliente1 = new javax.swing.JLabel();
         jLblobservacao = new javax.swing.JLabel();
@@ -70,8 +71,6 @@ public class Cadastroaluguel extends javax.swing.JInternalFrame {
 
         getContentPane().add(jComboBoxVeiculo);
         jComboBoxVeiculo.setBounds(330, 200, 160, 22);
-        getContentPane().add(jDateAluguel);
-        jDateAluguel.setBounds(330, 240, 160, 22);
 
         jLblDataAluguel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLblDataAluguel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -80,6 +79,8 @@ public class Cadastroaluguel extends javax.swing.JInternalFrame {
         jLblDataAluguel1.setBounds(330, 260, 100, 17);
         getContentPane().add(jDateEntrega);
         jDateEntrega.setBounds(330, 280, 160, 22);
+        getContentPane().add(jDateAluguel);
+        jDateAluguel.setBounds(330, 240, 160, 22);
 
         jLblentregue.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLblentregue.setForeground(new java.awt.Color(255, 255, 255));
@@ -186,7 +187,7 @@ public class Cadastroaluguel extends javax.swing.JInternalFrame {
         getContentPane().add(jLblfundo);
         jLblfundo.setBounds(0, 0, 1170, 510);
 
-        pack();
+        setBounds(0, 0, 1183, 539);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConsultar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultar1ActionPerformed
@@ -203,7 +204,7 @@ public class Cadastroaluguel extends javax.swing.JInternalFrame {
     private void btnCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrar1ActionPerformed
         // TODO add your handling code here:
         //quando clicar no botao chamar o controlador para salvar um aluguel
-        //controller.inserir();
+        controller.inserir();
     }//GEN-LAST:event_btnCadastrar1ActionPerformed
 
     private void btnCadastrar1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCadastrar1KeyPressed
@@ -247,19 +248,19 @@ public class Cadastroaluguel extends javax.swing.JInternalFrame {
         this.jComboBoxVeiculo = jComboBoxVeiculo;
     }
 
-    public JDateChooser getjDateAluguel() {
+    public JFormattedTextField getjDateAluguel() {
         return jDateAluguel;
     }
 
-    public void setjDateAluguel(JDateChooser jDateAluguel) {
+    public void setjDateAluguel(JFormattedTextField jDateAluguel) {
         this.jDateAluguel = jDateAluguel;
     }
 
-    public JDateChooser getjDateEntrega() {
+    public JFormattedTextField getjDateEntrega() {
         return jDateEntrega;
     }
 
-    public void setjDateEntrega(JDateChooser jDateEntrega) {
+    public void setjDateEntrega(JFormattedTextField jDateEntrega) {
         this.jDateEntrega = jDateEntrega;
     }
 
@@ -294,6 +295,14 @@ public class Cadastroaluguel extends javax.swing.JInternalFrame {
     public void setjTextValorpago(JTextField jTextValorpago) {
         this.jTextValorpago = jTextValorpago;
     }
+    
+    //funcao iniciar que inicia junto com a view
+    private void iniciar()
+    {
+        
+        this.controller.AtualizarVeiculo();
+        
+    }        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar1;
@@ -301,8 +310,8 @@ public class Cadastroaluguel extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnDeletar;
     private javax.swing.JComboBox<Object> jComboBoxCliente;
     private javax.swing.JComboBox<Object> jComboBoxVeiculo;
-    private com.toedter.calendar.JDateChooser jDateAluguel;
-    private com.toedter.calendar.JDateChooser jDateEntrega;
+    private javax.swing.JFormattedTextField jDateAluguel;
+    private javax.swing.JFormattedTextField jDateEntrega;
     private javax.swing.JLabel jLbId;
     private javax.swing.JLabel jLblDataAluguel;
     private javax.swing.JLabel jLblDataAluguel1;

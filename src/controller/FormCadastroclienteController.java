@@ -1,7 +1,8 @@
 package controller;
 
-import dao.Conexao;
-import dao.ClienteDAO;
+import controller.helpers.ClienteHelper;
+import model.dao.Conexao;
+import model.dao.ClienteDAO;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -14,34 +15,28 @@ public class FormCadastroclienteController {
     
     //view a ser gerenciada pelo controller
     private Cadastrocliente view;
+    private ClienteHelper helper;
     
     public FormCadastroclienteController(Cadastrocliente view)
     {
         
        this.view = view;
-        
+        this.helper = new ClienteHelper(view);
     }
     
     public void inserir()
     {
         
-       String nomecliente = view.getjTextNome1().getText();//nome recebe view como parametro e busca o campo jTextNome e pega o texto dele
-       String endereco = view.getjTextEndereco().getText();//endereco recebe view como parametro e busca o campo JTextEndereco e pega o texto dele
-       String uf = view.getjTextUF1().getText();//uf recebe view como parameto e busca o campo JTxtUf e pega o texto dele
-       String telefone = view.getjTextTelefone().getText();//telefone recebe view como parametro e busca o campo JtxtTelefone e pega o texto dele
-       Long cpf = Long.parseLong(view.getjTextCPF().getText());//cpf recebe view como parametro e busca o campo jTextCpf e pega o texto dele
-       String email = view.getjTextEmail().getText();//email recebe view como parameto e busca o campo jTxtEmail e pega o texto dele
+        Cliente cliente = helper.obterCliente();
        
-       Cliente cliente = new Cliente(nomecliente, endereco, uf, telefone, cpf, email);
-       
-       if(nomecliente.isEmpty() || endereco.isEmpty() || uf.isEmpty() || telefone.isEmpty() || cpf == 0 || email.isEmpty())
+       if(cliente.getNomecliente().isEmpty() || cliente.getEndereco().isEmpty() || cliente.getUf().isEmpty() || cliente.getTelefone().isEmpty() || cliente.getCpf().equals(0) || cliente.getEmail().isEmpty())
        {
            
            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
            
        }
        else
-       {
+       {//se estiverem preenchidos faça
            
            try
            {
@@ -56,7 +51,7 @@ public class FormCadastroclienteController {
            catch(SQLException ex)
            {
                
-               Logger.getLogger(Cadastrocliente.class.getName()).log(Level.SEVERE, null, ex);
+               JOptionPane.showMessageDialog(null, "Erro ao inserir cliente no banco de dados!");
                
            }     
        }      

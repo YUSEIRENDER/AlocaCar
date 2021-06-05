@@ -28,6 +28,7 @@ public class Cadastrologin extends javax.swing.JInternalFrame {
         initComponents();
         //adicionar controlador a view
         controller = new FormCadastrologinController(this); //criar campo controller em view
+
     }
 
     /**
@@ -248,8 +249,10 @@ public class Cadastrologin extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextEmailKeyPressed
 
     private void btnCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrar1ActionPerformed
-	//quando clicar no botao chamar o controlador para salvar um usuario
-        controller.inserir();  
+
+            //quando clicar no botao chamar o controlador para salvar um usuario
+            controller.inserir(); 
+
     }//GEN-LAST:event_btnCadastrar1ActionPerformed
 
     private void btnCadastrar1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCadastrar1KeyPressed
@@ -342,4 +345,5 @@ public class Cadastrologin extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextNome;
     private javax.swing.JPasswordField jTextSenha;
     // End of variables declaration//GEN-END:variables
+
 }

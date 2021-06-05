@@ -22,6 +22,10 @@ public class Usuario {
         this.login = login;
         this.senha = senha;
     }
+
+    public Usuario() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     //métodos getters e setters
     public String getNome() {

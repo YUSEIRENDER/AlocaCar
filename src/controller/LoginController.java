@@ -1,8 +1,8 @@
 package controller;
 
 import controller.helpers.LoginHelper;
-import dao.Conexao;
-import dao.UsuarioDAO;
+import model.dao.Conexao;
+import model.dao.UsuarioDAO;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.sql.Connection;
 import java.sql.SQLException;

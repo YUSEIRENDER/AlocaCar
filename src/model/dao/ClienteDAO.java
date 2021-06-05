@@ -1,4 +1,4 @@
-package dao;
+package model.dao;
 
 import model.Cliente;//importação do cliente no pacote entidades
 import java.sql.Connection;

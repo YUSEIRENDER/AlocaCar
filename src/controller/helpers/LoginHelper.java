@@ -42,5 +42,13 @@ public class LoginHelper {
         view.getjTextLogin1().setText(login);
         view.getjTextSenha().setText(senha);
     }        
+
+        public void limparTela()
+    {
+        
+        view.getjTextLogin1().setText("");
+        view.getjTextSenha().setText("");     
+        
+    }      
     
 }
