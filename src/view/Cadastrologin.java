@@ -198,7 +198,7 @@ public class Cadastrologin extends javax.swing.JInternalFrame {
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
 
         //quando clicar no botao chamar o controlador para deletar um usuario
-        //controller
+        controller.deletar();
         
     }//GEN-LAST:event_btnDeletarActionPerformed
 
@@ -273,8 +273,7 @@ public class Cadastrologin extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCadastrar1KeyPressed
 
     private void btnConsultar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultar1ActionPerformed
-        // TODO add your handling code here:
-        //controller
+
     }//GEN-LAST:event_btnConsultar1ActionPerformed
 
     //metodos getters e setters da view

@@ -3,13 +3,10 @@ package controller;
 import controller.helpers.AluguelHelper;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import model.Aluguel;
-import model.Veiculo;
 import model.dao.AluguelDAO;
 import model.dao.Conexao;
-import model.dao.VeiculoDAO;
 import view.Cadastroaluguel;
 
 public class FormCadastroAluguelController {
@@ -34,7 +31,7 @@ public class FormCadastroAluguelController {
            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
            
        }
-       else//se estiver preenchido faça
+       else if(aluguel.getEntregue().equals("sim"))
        {
            
            try
@@ -58,13 +55,39 @@ public class FormCadastroAluguelController {
         
     }
     
-    public void AtualizarVeiculo()
+    public void deletar()
     {
         
-        //buscar veiculo do banco de dados
-        //VeiculoDAO veiculoDao = VeiculoDAO();
-        //ArrayList<Veiculo> veiculos = veiculoDao.selecioneTudo();
-        //exibir veiculo no combobox
-        //helper.obterVeiculo(veiculos);
+        Aluguel aluguel = helper.obterAluguel();//pegar modelo da tela no helper
+        
+        if(aluguel.getVeiculo().equals("") || aluguel.getDataaluguel().equals("") || aluguel.getDataentrega().equals("") || aluguel.getCliente().equals("") || aluguel.getEntregue().isEmpty() || aluguel.getValorpago().equals(""))
+        {
+            
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
+            
+        }
+        else if(aluguel.getEntregue().equals("sim"))
+        {
+            
+            try
+            {
+                
+                Connection conexao = new Conexao().getConnection();
+                AluguelDAO alugueldao = new AluguelDAO(conexao);
+                alugueldao.deletar(aluguel);
+                
+                JOptionPane.showMessageDialog(null, "Aluguel deletado com sucesso!");
+                
+            }
+            catch(SQLException ex)
+            {
+                
+                JOptionPane.showMessageDialog(null, "Error ao aluguel cliente no banco de dados!");
+                
+            }    
+            
+        }    
+        
     }        
+         
 }

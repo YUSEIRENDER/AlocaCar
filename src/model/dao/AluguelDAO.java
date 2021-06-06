@@ -30,7 +30,7 @@ public class AluguelDAO {
  
          //jogue na string sql o comando sql os valores respectivos no banco de dados
         String sql = "INSERT INTO aluguel(idaluguel,veiculo,dataaluguel,dataentrega,cliente,entregue,observacao,valorpago) values (?,?,?,?,?,?,?,?); ";//cria string sql  
-        PreparedStatement stmt = null;
+        PreparedStatement stmt = conexao.prepareStatement(sql);
         
         try
         {
@@ -47,7 +47,7 @@ public class AluguelDAO {
         stmt.setDouble(8, aluguel.getValorpago());//statement seta string 8=? oq ue vir de aluguel.getValorpago()
         
         stmt.execute();            
-            
+            JOptionPane.showMessageDialog(null, "Aluguel deletado com sucesso!");
         }    
         catch(SQLException ex)
         {
@@ -59,6 +59,7 @@ public class AluguelDAO {
         {
             
             stmt.close();
+            conexao.close();
             
             
         }    
@@ -68,11 +69,30 @@ public class AluguelDAO {
     public void deletar (Aluguel aluguel) throws SQLException
     {
         
-        String sql = "DELETE FROM aluguel WHERE idaluguel = ?";//cria string sql
-        PreparedStatement stmt = conexao.prepareStatement(sql);
+        try
+        {
+            
+            String sql = "DELETE FROM aluguel WHERE idaluguel = ?";//cria string sql
+            PreparedStatement stmt = conexao.prepareStatement(sql);
         
-        stmt.setInt(1, aluguel.getIdaluguel());//statement seta string 1=? o que vir de aluguel.getIdaluguel()
-        
+            stmt.setInt(1, aluguel.getIdaluguel());//statement seta string 1=? o que vir de aluguel.getIdaluguel()
+            stmt.execute();
+            JOptionPane.showMessageDialog(null, "Aluguel deletado com sucesso!");
+            
+            
+        }
+        catch(SQLException ex)
+        {
+            
+            JOptionPane.showMessageDialog(null, "Erro ao deletar aluguel!");
+            
+        }
+        finally
+        {
+            
+            conexao.close();
+            
+        }    
     }
     
     //função selecionar tudo
@@ -88,7 +108,7 @@ public class AluguelDAO {
      //metodo pesquisa abstraido
      private ArrayList<Aluguel> pesquisa(PreparedStatement stmt) throws SQLException //cria função pesquisa, recebe o statement e retorna lista de aluguel
      {
-         
+
          ArrayList<Aluguel> alugeis = new ArrayList<Aluguel>();//crie um arraylist de aluguel
          
          stmt.execute();//efetua a execução no banco de dados
@@ -112,7 +132,8 @@ public class AluguelDAO {
              
          }
          
-         return alugeis;
+         return alugeis;             
+
      }
      
      //selecionar por id

@@ -1,5 +1,6 @@
 package controller.helpers;
 
+import java.util.ArrayList;
 import java.util.Date;
 import model.Aluguel;
 import model.Cliente;
@@ -76,5 +77,6 @@ public class AluguelHelper {
         view.getjTextObservacao().setText("");
         view.getjTextValorpago().setText("");
     }  
+
     
 }

@@ -1,5 +1,7 @@
 package controller.helpers;
 
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 import model.Usuario;
 import view.Cadastrologin;
 
@@ -53,5 +55,6 @@ public class CadloginHelper
         view.getjTextSenha().setText("");
         view.getjTextEmail().setText("");        
         
-    }        
+    }
+    
 }

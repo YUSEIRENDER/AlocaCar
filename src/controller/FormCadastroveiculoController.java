@@ -52,6 +52,29 @@ public class FormCadastroveiculoController {
             }    
     }
 
-    
+    //função deletar
+    public void deletar()
+    {
+        
+        Veiculo veiculo = helper.obterVeiculo();//pegar modelo da tela no helper
+        
+        try
+        {
+            
+            Connection conexao = new Conexao().getConnection();
+            VeiculoDAO usuarioDao = new VeiculoDAO(conexao);            
+            
+            JOptionPane.showMessageDialog(null, "veiculo deletado com sucesso!");
+            
+        }
+        catch(SQLException ex)
+        {
+            
+            JOptionPane.showMessageDialog(null, "Error ao deletar veiculo no banco de dados!");
+            
+        }    
+
+        
+    }        
   
     }        

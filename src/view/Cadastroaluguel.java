@@ -25,7 +25,6 @@ public class Cadastroaluguel extends javax.swing.JInternalFrame {
         initComponents();
         //quero que um controller controle a view
         controller = new FormCadastroAluguelController(this);
-        iniciar();
     }
 
     /**
@@ -295,14 +294,7 @@ public class Cadastroaluguel extends javax.swing.JInternalFrame {
     public void setjTextValorpago(JTextField jTextValorpago) {
         this.jTextValorpago = jTextValorpago;
     }
-    
-    //funcao iniciar que inicia junto com a view
-    private void iniciar()
-    {
-        
-        this.controller.AtualizarVeiculo();
-        
-    }        
+          
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar1;

@@ -5,8 +5,6 @@ import model.dao.Conexao;
 import model.dao.ClienteDAO;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Cliente;
 import view.Cadastrocliente;
@@ -55,6 +53,41 @@ public class FormCadastroclienteController {
                
            }     
        }      
-    }       
+    }
+    
+    public void deletar()
+    {
+        
+        Cliente cliente = helper.obterCliente();//pegar modelo da tela no helper
+        
+        if(cliente.getNomecliente().isEmpty() || cliente.getEndereco().isEmpty() || cliente.getUf().isEmpty() || cliente.getTelefone().isEmpty() || cliente.getCpf().equals("") || cliente.getEmail().isEmpty())
+        {
+            
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
+            
+        }
+        else
+        {//se estiverem preenchindos faça
+            
+            try
+            {
+                
+                Connection conexao = new Conexao().getConnection();
+                ClienteDAO clienteDAO = new ClienteDAO(conexao);
+                clienteDAO.deletar(cliente);
+                
+                JOptionPane.showMessageDialog(null, "Cliente deletado com sucesso!");
+                
+            }
+            catch (SQLException ex)
+            {
+                
+                JOptionPane.showMessageDialog(null, "Error ao deletar cliente no banco de dados!");
+                
+            }    
+            
+        }    
+        
+    }        
     
 }

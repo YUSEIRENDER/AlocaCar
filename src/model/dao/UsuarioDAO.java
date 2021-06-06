@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class UsuarioDAO 
 {
@@ -31,27 +32,63 @@ public class UsuarioDAO
     {
             //jogue na string sql o comando sql os valores respectivos no banco de dados
             String sql = "INSERT INTO usuario(nome,cargo,login,senha,email) values (?,?,?,?,?); ";//cria string sql
-            PreparedStatement stmt = conexao.prepareStatement(sql);
+            PreparedStatement stmt = null;
             
-            stmt.setString(1,usuario.getNome());//statement seta string 1=? o que vir de usuario.getNome()
-            stmt.setString(2,usuario.getCargo());//statement seta string 2=? o que vir de usuario.getCargo()
-            stmt.setString(3,usuario.getLogin());//statement seta string 3=? o que vir de usuario.getLogin()
-            stmt.setString(4,usuario.getSenha());//statement seta string 4=? o que vir de usuario.getSenha()
-            stmt.setString(5, usuario.getEmail());//statement seta string 5=? o que vir de usuario.getEmail()
+            try
+            {
+                stmt = conexao.prepareStatement(sql);
+                
+                stmt.setString(1,usuario.getNome());//statement seta string 1=? o que vir de usuario.getNome()
+                stmt.setString(2,usuario.getCargo());//statement seta string 2=? o que vir de usuario.getCargo()
+                stmt.setString(3,usuario.getLogin());//statement seta string 3=? o que vir de usuario.getLogin()
+                stmt.setString(4,usuario.getSenha());//statement seta string 4=? o que vir de usuario.getSenha()
+                stmt.setString(5, usuario.getEmail());//statement seta string 5=? o que vir de usuario.getEmail()
             
-            //efetua a execução no banco de dados
-            stmt.execute();
+                //efetua a execução no banco de dados
+                stmt.execute();        
+                JOptionPane.showMessageDialog(null, "Usuario inserido com sucesso!");
+            }
+            catch(SQLException ex)
+            {
+                
+                JOptionPane.showMessageDialog(null, "Erro ao inserir no banco de dados!");
+                
+            }
+            finally
+            {
+                
+                stmt.close();
+                conexao.close();
+                
+            }    
 
     }               
     //função excluir
     public void deletar(Usuario usuario) throws SQLException
     {
         
-        String sql = "DELETE FROM usuario WHERE nome = ?";//cria string sql
-        PreparedStatement stmt = conexao.prepareStatement(sql);
+        try
+        {
+            
+            String sql = "DELETE FROM usuario WHERE nome = ?";//cria string sql
+            PreparedStatement stmt = conexao.prepareStatement(sql);
         
-        stmt.setString(1, usuario.getNome());//statement seta string 1=? o que vir de usuario.getNome()
-        stmt.execute();//efetua a execução no banco de dados
+            stmt.setString(1, usuario.getNome());//statement seta string 1=? o que vir de usuario.getNome()
+            stmt.execute();//efetua a execução no banco de dados            
+            JOptionPane.showMessageDialog(null, "Usuario deletado com sucesso!");
+        }
+        catch(SQLException ex)
+        {
+            
+            JOptionPane.showMessageDialog(null, "Erro ao deletar usuario!");
+            
+        }
+        finally
+        {
+            
+            conexao.close();
+            
+        }    
         
     }       
     

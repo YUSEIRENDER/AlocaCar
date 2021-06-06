@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class ClienteDAO 
 {
@@ -27,28 +28,66 @@ public class ClienteDAO
         
             //jogue na string sql o comando sql os valores respectivos no banco de dados
             String sql = "INSERT INTO cliente(nomecliente,endereco,uf,telefone,cpf,email) values (?,?,?,?,?,?); ";//cria string sql
-            PreparedStatement stmt = conexao.prepareStatement(sql);
+            PreparedStatement stmt = null;
             
-            stmt.setString(1,cliente.getNomecliente());//statement seta string 1=? o que vir de cliente.getNomecliente()
-            stmt.setString(2,cliente.getEndereco());//statement seta string 2=? o que vir de cliente.getEndereco()
-            stmt.setString(3,cliente.getUf());//statement seta string 3=? o que vir de cliente.getUf().
-            stmt.setString(4,cliente.getTelefone());//statement seta string 4=? o que vir de cliente.getTelefone()
-            stmt.setLong(5, cliente.getCpf());//statement seta string 5=? o que vir de cliente.getCpf()
-            stmt.setString(6, cliente.getEmail());//statement seta string 6=? o que vier de cliente.getEmail()
+            try
+            {
+                
+                stmt = conexao.prepareStatement(sql);
+                
+                stmt.setString(1,cliente.getNomecliente());//statement seta string 1=? o que vir de cliente.getNomecliente()
+                stmt.setString(2,cliente.getEndereco());//statement seta string 2=? o que vir de cliente.getEndereco()
+                stmt.setString(3,cliente.getUf());//statement seta string 3=? o que vir de cliente.getUf().
+                stmt.setString(4,cliente.getTelefone());//statement seta string 4=? o que vir de cliente.getTelefone()
+                stmt.setLong(5, cliente.getCpf());//statement seta string 5=? o que vir de cliente.getCpf()
+                stmt.setString(6, cliente.getEmail());//statement seta string 6=? o que vier de cliente.getEmail()
             
             //efetua a execução no banco de dados
-            stmt.execute();
+                stmt.execute();                
+                JOptionPane.showMessageDialog(null, "Cliente deletado com sucesso!");
+            }
+            catch(SQLException ex)
+            {
+                
+                JOptionPane.showMessageDialog(null, "Erro ao inserir no banco de dados!");
+                
+            }
+            finally
+            {
+                
+                stmt.close();
+                conexao.close();
+                
+            }    
     }        
 
     //função excluir
     public void deletar(Cliente cliente) throws SQLException
     {
         
-        String sql = "DELETE FROM cliente WHERE cpf = ?";//cria string sql
-        PreparedStatement stmt = conexao.prepareStatement(sql);
-        
-        stmt.setLong(1, cliente.getCpf());//statement seta string 1=? o que vir de cliente.getCpf()
-        stmt.execute();//efetua a execução no banco de dados
+        try
+        {
+            
+            String sql = "DELETE FROM cliente WHERE cpf = ?";//cria string sql
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            
+            stmt.setLong(1, cliente.getCpf());//statement seta string 1=? o que vir de cliente.getCpf()
+            stmt.execute();
+            JOptionPane.showMessageDialog(null, "Cliente deletado com sucesso!");
+            
+        }
+        catch(SQLException ex)
+        {
+            
+            JOptionPane.showMessageDialog(null, "Erro ao deletar cliente!");
+            
+        }
+        finally
+        {
+            
+            conexao.close();
+            
+        }    
         
     }
     
